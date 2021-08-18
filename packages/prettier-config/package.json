@@ -1,0 +1,12 @@
+{
+  "name": "@xrplf/prettier-config",
+  "version": "0.1.0",
+  "description": "The XRPL Foundation's JavaScript/TypeScript configuration for Prettier",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XRPLF/typescript-style.git"
+  },
+  "author": "Greg Weisbrod <greg.weisbrod@gmail.com> (https://gregweisbrod.com)",
+  "license": "ISC"
+}

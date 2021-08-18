@@ -1,0 +1,81 @@
+{
+  "name": "@xrplf/eslint-config",
+  "version": "0.1.0",
+  "description": "The XRPL Foundation's base TypeScript ESLint config, following our styleguide",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "styleguide"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XRPLF/eslint-config"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "check-prettier": "npx eslint --print-config index.js | npx eslint-config-prettier-check",
+    "check-prettier-test": "npx eslint --print-config test/index.test.js | npx eslint-config-prettier-check",
+    "eslint-find-option-rules": "eslint-find-rules [option] <file> [flag]",
+    "lint": "eslint --report-unused-disable-directives .",
+    "plugin": "eslint-find-rules --plugin",
+    "unused": "eslint-find-rules --unused"
+  },
+  "dependencies": {
+    "confusing-browser-globals": "^1.0.9",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.11.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "@xrplf/prettier-config": "^0.1.0",
+    "eslint": "^7.5.0",
+    "eslint-find-rules": "^3.4.0",
+    "eslint-plugin-array-func": "^3.1.6",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^29.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-tsdoc": "^0.2.5",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.3"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-array-func": "^3.1.6",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^29.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-tsdoc": "^0.2.5",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.2"
+  },
+  "eslintConfig": {
+    "extends": "./base.js",
+    "parserOptions": {
+      "project": "tsconfig.json"
+    },
+    "rules": {
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "import/unambiguous": "off",
+      "import/no-commonjs": "off",
+      "import/no-unused-modules": "off"
+    }
+  },
+  "prettier": "@xrplf/prettier-config",
+  "engines": {
+    "node": ">=14.15.0 <15.0.0",
+    "npm": ">=7.20.0 <8.0.0"
+  }
+}
