@@ -746,6 +746,16 @@ module.exports = {
 
   overrides: [
     {
+      files: [
+        "**/*.js",
+        "**/*.jsx",
+      ],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-unnecessary-condition': 'off',
+      },
+    },
+    {
       files: ['config.ts'],
       rules: {
         // Our config file often has "magic numbers" as default port numbers or other things
