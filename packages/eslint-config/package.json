@@ -25,37 +25,24 @@
   "dependencies": {
     "confusing-browser-globals": "^1.0.9",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.11.0"
+    "eslint-config-prettier": "8.3.0"
   },
   "devDependencies": {
+    "@xrplf/prettier-config": "file:../prettier-config"
+  },
+  "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.0.0",
-    "@xrplf/prettier-config": "^1.1.0",
+    "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.5.0",
-    "eslint-find-rules": "^3.4.0",
     "eslint-plugin-array-func": "^3.1.6",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^29.1.0",
+    "eslint-plugin-jsdoc": "36.0.8",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-tsdoc": "^0.2.5",
     "prettier": "^2.0.5",
     "typescript": "^3.9.3"
-  },
-  "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
-    "@typescript-eslint/parser": "^3.7.0",
-    "eslint": "^7.5.0",
-    "eslint-plugin-array-func": "^3.1.6",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^29.0.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-tsdoc": "^0.2.5",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.2"
   },
   "eslintConfig": {
     "extends": "./base.js",

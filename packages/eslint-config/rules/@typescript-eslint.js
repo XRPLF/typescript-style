@@ -127,10 +127,29 @@ module.exports = {
         trailingUnderscore: 'allow',
       },
 
+      // unused variables must have a leading underscore
+      {
+        selector: 'variable',
+        modifiers: ['unused'],
+        format: ['camelCase', 'UPPER_CASE'],
+        leadingUnderscore: 'require',
+        trailingUnderscore: 'allow',
+      },
+
+      // allow more flexibility with global vars
+      {
+        selector: 'variable',
+        modifiers: ['const', 'global'],
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+        leadingUnderscore: 'allow',
+        trailingUnderscore: 'allow',
+      },
+
+      // used variables must not have a leadning underscore
       {
         selector: 'variable',
         format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'allow',
+        leadingUnderscore: 'forbid',
         trailingUnderscore: 'allow',
       },
 
@@ -172,6 +191,20 @@ module.exports = {
         selector: 'enumMember',
         format: ['PascalCase', 'UPPER_CASE'],
       },
+      // static readonly properties should look like constants
+      {
+        selector: 'property',
+        modifiers: ['static', 'readonly'],
+        format: ['UPPER_CASE'],
+      },
+      // private properties should have leading underscores
+      {
+        selector: 'property',
+        modifiers: ['private'],
+        format: ['camelCase'],
+        leadingUnderscore: 'require',
+      },
+      // normal properties should just be camelCase
       {
         selector: 'property',
         format: ['camelCase'],

@@ -2,9 +2,28 @@
   "private": true,
   "description": "Monorepo for all style conventions used by XRPLF in Typescript and Javascript",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "@xrplf/prettier-config": "^1.1.0",
+    "eslint": "^7.5.0",
+    "eslint-find-rules": "^3.4.0",
+    "eslint-plugin-array-func": "^3.1.6",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "36.0.8",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-tsdoc": "^0.2.5",
+    "lerna": "^4.0.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.3"
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "name": "xrplf-typescript-style",
+  "dependencies": {
+    "@xrplf/eslint-config": "file:packages/eslint-config",
+    "@xrplf/prettier-config": "file:packages/prettier-config"
+  }
 }
