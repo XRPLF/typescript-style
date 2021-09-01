@@ -17,7 +17,6 @@ module.exports = {
   extends: [
     // Disable reporting on rules that Prettier will auto-fix
     'prettier',
-    'prettier/@typescript-eslint',
   ],
 
   // These rules are disabled by default, but can be enabled as long as you have read documentation (which I have).
