@@ -1,6 +1,3 @@
 module.exports = {
-  extends: [
-    './rules/react',
-    './loose-base',
-  ].map(require.resolve),
+  extends: ['./rules/react', './loose-base'].map(require.resolve),
 }

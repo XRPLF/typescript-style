@@ -2,8 +2,10 @@ const common = require('./common')
 
 module.exports = {
   env: {
-    node: true, // Enable node global variables & Node.js scoping
-    es2020: true, // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
+    // Enable node global variables & Node.js scoping
+    node: true,
+    // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
+    es2020: true,
   },
   parserOptions: {
     sourceType: 'module',
@@ -15,7 +17,8 @@ module.exports = {
   rules: {
     /* STATIC ANALYSIS */
 
-    // Ensures an imported module can be resolved to a module on the local filesystem, as defined by standard Node require.resolve behavior.
+    // Ensures an imported module can be resolved to a module on the local filesystem,
+    // as defined by standard Node require.resolve behavior.
     // https://github.com/benmosher/eslint-plugin-import/blob/3aefa79f167b998485733a1d7f9ba53b8d5bcc80/docs/rules/no-unresolved.md
     'import/no-unresolved': ['error', { commonjs: true }],
 
@@ -208,22 +211,26 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-namespace.md
     'import/no-namespace': 'off',
 
-    // Forbid the use of Node.js builtin modules. Can be useful for client-side web projects that do not have access to those modules.
+    // Forbid the use of Node.js builtin modules. Can be useful for client-side web
+    // projects that do not have access to those modules.
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-nodejs-modules.md
     'import/no-nodejs-modules': 'off',
 
     // Use this rule to prevent imports to folders in relative parent paths.
     // This rule is useful for enforcing tree-like folder structures instead of complex graph-like folder structures.
-    // While this restriction might be a departure from Node's default resolution style, it can lead large, complex codebases to be easier to maintain.
+    // While this restriction might be a departure from Node's default resolution style,
+    // it can lead large, complex codebases to be easier to maintain.
     // If you've ever had debates over "where to put files" this rule is for you.
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-relative-parent-imports.md
     // TODO: Enable this rule later to `warn`?
     'import/no-relative-parent-imports': 'off',
 
     // Some projects contain files which are not always meant to be executed in the same environment.
-    // For example consider a web application that contains specific code for the server and some specific code for the browser/client.
+    // For example consider a web application that contains specific code for the server and
+    // some specific code for the browser/client.
     // In this case you don’t want to import server-only files in your client code.
-    // In order to prevent such scenarios this rule allows you to define restricted zones where you can forbid files from imported if they match a specific path.
+    // In order to prevent such scenarios this rule allows you to define restricted zones where
+    // you can forbid files from imported if they match a specific path.
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md
     'import/no-restricted-paths': 'off',
   },

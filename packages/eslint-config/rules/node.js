@@ -2,8 +2,10 @@ const common = require('./common')
 
 module.exports = {
   env: {
-    node: true, // Enable node global variables & Node.js scoping
-    es2020: true, // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
+    // Enable node global variables & Node.js scoping
+    node: true,
+    // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
+    es2020: true,
   },
   parserOptions: {
     sourceType: 'module',

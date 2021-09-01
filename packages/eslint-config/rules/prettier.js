@@ -2,8 +2,10 @@ const common = require('./common')
 
 module.exports = {
   env: {
-    node: true, // Enable node global variables & Node.js scoping
-    es2020: true, // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
+    // Enable node global variables & Node.js scoping
+    node: true,
+    // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
+    es2020: true,
   },
   parserOptions: {
     sourceType: 'module',
@@ -60,7 +62,8 @@ module.exports = {
 
     // Usually, Prettier takes care of following a maximum line length automatically.
     // However, there are cases where Prettier can’t do anything, such as for long strings, regular expressions and comments.
-    // If you’d like to enforce an even stricter maximum line length policy than Prettier can provide automatically, you can enable this rule.
+    // If you’d like to enforce an even stricter maximum line length policy than Prettier can
+    // provide automatically, you can enable this rule.
     // Just remember to keep max-len’s options and Prettier’s printWidth option in sync.
     // TODO: Make this an error?
     // https://eslint.org/docs/rules/max-len
@@ -102,7 +105,8 @@ module.exports = {
     'no-mixed-operators': 'off',
 
     // disallow confusing multiline expressions
-    // If you do enable this rule, you have to run ESLint and Prettier as two separate steps (and ESLint first) in order to get any value out of it.
+    // If you do enable this rule, you have to run ESLint and Prettier as two separate steps
+    // (and ESLint first) in order to get any value out of it.
     // Otherwise Prettier might reformat your code in such a way that ESLint never gets a chance to report anything.
     // https://eslint.org/docs/rules/no-unexpected-multiline
     'no-unexpected-multiline': 'off',

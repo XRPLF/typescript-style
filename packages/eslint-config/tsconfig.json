@@ -1,5 +1,7 @@
 {
+  "include": [".eslintrc.js", "**/*.js"],
   "compilerOptions": {
+    "allowJs": true,
     "target": "ES2015",
     "module": "commonjs",
     "strict": true,

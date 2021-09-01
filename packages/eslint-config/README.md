@@ -79,7 +79,6 @@ use `@xrplf/eslint-config/loose-base`.
 The looser configuration differs in the following ways:
 
 - Longer line length limitation for functions
-- More import statements allowed per file
 - More parameters allowed per function
 - The very strict `no-unsafe-*` rules from `@typescript-eslint` are disabled
 - Type assertions are allowed
