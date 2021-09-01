@@ -16,10 +16,6 @@ module.exports = {
       },
     ],
 
-    // Warn when modules have too many dependencies (code smell)
-    // TODO: Remove this one?
-    'import/max-dependencies': ['warn', { max: 8 }],
-
     // limits the number of parameters that can be used in the function declaration.
     // TODO: Definitely remove this one
     'max-params': ['warn', { max: 4 }],
@@ -44,10 +40,6 @@ module.exports = {
     {
       files: common.testPaths,
       rules: {
-        // Warn when modules have too many dependencies (code smell)
-        // Increased the max for test files and test helper files, since tests usually need to import more things
-        'import/max-dependencies': ['warn', { max: 8 }],
-
         // describe blocks count as a function in Mocha tests, and can be insanely long
         'max-lines-per-function': 'off',
       },

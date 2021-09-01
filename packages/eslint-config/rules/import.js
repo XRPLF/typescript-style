@@ -139,9 +139,9 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
     'import/prefer-default-export': 'error',
 
-    // Warn when modules have too many dependencies (code smell)
+    // Don't warn when modules have too many dependencies
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/max-dependencies.md
-    'import/max-dependencies': ['warn', { max: 5 }],
+    'import/max-dependencies': 'off',
 
     // Prevent unassigned imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
@@ -240,10 +240,6 @@ module.exports = {
     {
       files: common.testPaths,
       rules: {
-        // Warn when modules have too many dependencies (code smell)
-        // Increased the max for test files and test helper files, since tests usually need to import more things
-        'import/max-dependencies': ['warn', { max: 8 }],
-
         // Our Mocha test files never export anything.
         'import/no-unused-modules': 'off',
 

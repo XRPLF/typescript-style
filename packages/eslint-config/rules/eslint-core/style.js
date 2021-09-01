@@ -42,7 +42,7 @@ module.exports = {
     // this option enforces minimum and maximum identifier lengths
     // (variable names, property names etc.)
     // https://eslint.org/docs/rules/id-length
-    'id-length': ['error', { min: 2, properties: 'always', exceptions: [] }],
+    'id-length': ['error', { min: 2, properties: 'always', exceptions: ['a', 'b', 'i', 'j', 'n'] }],
 
     // Enforce empty lines between multi-line class members (like method definitions),
     // but not between single line class members (like properties on a database model).
@@ -191,18 +191,9 @@ module.exports = {
       },
     ],
 
-    // disallow dangling underscores in identifiers
+    // allow dangling underscores in identifiers
     // https://eslint.org/docs/rules/no-underscore-dangle
-    'no-underscore-dangle': [
-      'warn',
-      {
-        allow: [],
-        allowAfterThis: false,
-        allowAfterSuper: false,
-        allowAfterThisConstructor: false,
-        enforceInMethodNames: true,
-      },
-    ],
+    'no-underscore-dangle': 'off',
 
     // disallow ternary operators when simpler alternatives exist
     // https://eslint.org/docs/rules/no-unneeded-ternary
