@@ -21,6 +21,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "lint": "lerna run lint",
+    "test": "lerna run test"
+  },
   "name": "xrplf-typescript-style",
   "dependencies": {
     "@xrplf/eslint-config": "file:packages/eslint-config",

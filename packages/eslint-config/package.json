@@ -15,8 +15,7 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "check-prettier": "npx eslint --print-config index.js | npx eslint-config-prettier-check",
-    "check-prettier-test": "npx eslint --print-config test/index.test.js | npx eslint-config-prettier-check",
+    "check-prettier": "npx eslint-config-prettier index.js",
     "eslint-find-option-rules": "eslint-find-rules [option] <file> [flag]",
     "lint": "eslint --report-unused-disable-directives .",
     "plugin": "eslint-find-rules --plugin",
@@ -43,22 +42,6 @@
     "eslint-plugin-tsdoc": "^0.2.5",
     "prettier": "^2.0.5",
     "typescript": "^3.9.3"
-  },
-  "eslintConfig": {
-    "extends": "./base.js",
-    "parserOptions": {
-      "project": "tsconfig.json"
-    },
-    "rules": {
-      "@typescript-eslint/no-require-imports": "off",
-      "@typescript-eslint/no-unsafe-assignment": "off",
-      "@typescript-eslint/no-unsafe-call": "off",
-      "@typescript-eslint/no-unsafe-member-access": "off",
-      "@typescript-eslint/no-var-requires": "off",
-      "import/unambiguous": "off",
-      "import/no-commonjs": "off",
-      "import/no-unused-modules": "off"
-    }
   },
   "prettier": "@xrplf/prettier-config",
   "engines": {

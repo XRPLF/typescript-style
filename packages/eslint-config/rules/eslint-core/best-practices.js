@@ -1,3 +1,5 @@
+/* eslint-disable max-lines --
+ * TODO ironically this violates our own rules lol */
 module.exports = {
   rules: {
     // enforces getter/setter pairs in objects and classes
@@ -213,15 +215,21 @@ module.exports = {
       {
         props: true,
         ignorePropertyModificationsFor: [
-          'acc', // for reduce accumulators
-          'accumulator', // for reduce accumulators
-          'e', // for e.returnvalue
-          'ctx', // for Koa routing
-          'req', // for Express requests
-          'request', // for Express requests
-          'res', // for Express responses
-          'response', // for Express responses
-          'staticContext', // for ReactRouter context
+          // for reduce accumulators
+          'acc',
+          'accumulator',
+          // for e.returnvalue
+          'e',
+          // for Koa routing
+          'ctx',
+          // for Express requests
+          'req',
+          'request',
+          'res',
+          // for Express responses
+          'response',
+          // for ReactRouter context
+          'staticContext',
         ],
       },
     ],

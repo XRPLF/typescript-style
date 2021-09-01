@@ -11,7 +11,6 @@ module.exports = {
         max: 50,
         skipBlankLines: false,
         skipComments: false,
-        // eslint-disable-next-line @typescript-eslint/naming-convention -- `IIFEs` is a key from the plugin
         IIFEs: false,
       },
     ],

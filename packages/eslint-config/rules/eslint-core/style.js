@@ -1,3 +1,5 @@
+/* eslint-disable max-lines --
+ * TODO lol we violate our own rules */
 const common = require('../common')
 
 module.exports = {
@@ -42,7 +44,10 @@ module.exports = {
     // this option enforces minimum and maximum identifier lengths
     // (variable names, property names etc.)
     // https://eslint.org/docs/rules/id-length
-    'id-length': ['error', { min: 2, properties: 'always', exceptions: ['a', 'b', 'i', 'j', 'n'] }],
+    'id-length': [
+      'error',
+      { min: 2, properties: 'always', exceptions: ['a', 'b', 'i', 'j', 'n'] },
+    ],
 
     // Enforce empty lines between multi-line class members (like method definitions),
     // but not between single line class members (like properties on a database model).
@@ -168,12 +173,6 @@ module.exports = {
         message:
           'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
       },
-      // TODO: enable?
-      // {
-      //   selector: 'ForOfStatement',
-      //   message:
-      //     'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
-      // },
       {
         selector: 'LabeledStatement',
         message:
@@ -231,11 +230,13 @@ module.exports = {
       {
         line: {
           exceptions: ['-', '+'],
-          markers: ['=', '!', '/'], // space here to support sprockets directives, slash for TS /// comments
+          // space here to support sprockets directives, slash for TS /// comments
+          markers: ['=', '!', '/'],
         },
         block: {
           exceptions: ['-', '+'],
-          markers: ['=', '!', ':', '::'], // space here to support sprockets directives and flow comment types
+          // space here to support sprockets directives and flow comment types
+          markers: ['=', '!', ':', '::'],
           balanced: true,
         },
       },

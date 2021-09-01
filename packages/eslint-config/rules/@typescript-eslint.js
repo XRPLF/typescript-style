@@ -1,3 +1,5 @@
+/* eslint-disable max-lines, max-len --
+ * TODO ironically we violate our own rules lol */
 const common = require('./common')
 
 module.exports = {
@@ -779,10 +781,7 @@ module.exports = {
 
   overrides: [
     {
-      files: [
-        "**/*.js",
-        "**/*.jsx",
-      ],
+      files: ['**/*.js', '**/*.jsx'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-unnecessary-condition': 'off',

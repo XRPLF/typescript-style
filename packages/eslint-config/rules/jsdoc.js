@@ -104,7 +104,8 @@ module.exports = {
     // https://github.com/gajus/eslint-plugin-jsdoc#no-types
     'jsdoc/no-types': 'error',
 
-    // Requires that block description, explicit @description, and @param/@returns tag descriptions are written in complete sentences.
+    // Requires that block description, explicit @description, and @param/@returns tag
+    // descriptions are written in complete sentences.
     // https://github.com/gajus/eslint-plugin-jsdoc#require-description-complete-sentence
     'jsdoc/require-description-complete-sentence': [
       'error',

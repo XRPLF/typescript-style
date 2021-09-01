@@ -16,9 +16,7 @@ module.exports = {
     es2020: true,
   },
 
-  extends: [
-    'airbnb/base',
-  ].concat(
+  extends: ['airbnb/base'].concat(
     [
       './rules/eslint-core/errors',
       './rules/eslint-core/best-practices',
@@ -34,7 +32,7 @@ module.exports = {
       './rules/import',
       './rules/array-func',
       './rules/prettier',
-    ].map(require.resolve)
+    ].map(require.resolve),
   ),
   rules: {},
 
