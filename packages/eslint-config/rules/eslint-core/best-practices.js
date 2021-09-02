@@ -1,5 +1,3 @@
-/* eslint-disable max-lines --
- * TODO ironically this violates our own rules lol */
 module.exports = {
   rules: {
     // enforces getter/setter pairs in objects and classes
