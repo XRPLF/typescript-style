@@ -41,7 +41,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-tsdoc": "^0.2.5",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "typescript": ">=3.9.0"
   },
   "prettier": "@xrplf/prettier-config",
   "engines": {

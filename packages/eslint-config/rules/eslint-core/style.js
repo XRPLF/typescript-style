@@ -1,5 +1,3 @@
-/* eslint-disable max-lines --
- * TODO lol we violate our own rules */
 const common = require('../common')
 
 module.exports = {
@@ -68,7 +66,7 @@ module.exports = {
       'warn',
       {
         max: 250,
-        skipBlankLines: false,
+        skipBlankLines: true,
         skipComments: true,
       },
     ],
@@ -79,8 +77,8 @@ module.exports = {
       'warn',
       {
         max: 30,
-        skipBlankLines: false,
-        skipComments: false,
+        skipBlankLines: true,
+        skipComments: true,
         IIFEs: false,
       },
     ],
