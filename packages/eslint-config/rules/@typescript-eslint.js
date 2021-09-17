@@ -818,6 +818,9 @@ module.exports = {
             minimumDescriptionLength: 4,
           },
         ],
+
+        // Overly annoying in test
+        '@typescript-eslint/no-magic-numbers': 'off',
       },
     },
     // Exceptions because of rippled's gRPC stuff.

@@ -93,7 +93,7 @@ module.exports = {
 
     // specify the maximum number of statement allowed in a function
     // https://eslint.org/docs/rules/max-statements
-    'max-statements': ['warn', 15, { ignoreTopLevelFunctions: true }],
+    'max-statements': 'off',
 
     // restrict the number of statements per line
     // https://eslint.org/docs/rules/max-statements-per-line
@@ -349,11 +349,11 @@ module.exports = {
         // describe blocks count as a function in Mocha tests, and can be insanely long
         'max-lines-per-function': 'off',
 
-        // Mocha nests callbacks using describe(it())
-        'max-nested-callbacks': ['warn', { max: 3 }],
+        // This is overly annoying for test
+        'max-nested-callbacks': 'off',
 
-        // It's reasonable for describe blocks to have a large number of tests
-        'max-statements': ['warn', 20, { ignoreTopLevelFunctions: true }],
+        // This is overly annoying for test
+        'max-lines': 'off',
       },
     },
   ],
