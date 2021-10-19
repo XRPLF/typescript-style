@@ -1,6 +1,6 @@
 {
   "name": "@xrplf/prettier-config",
-  "version": "1.2.0",
+  "version": "1.5.0",
   "description": "The XRPL Foundation's JavaScript/TypeScript configuration for Prettier",
   "main": "index.js",
   "repository": {
