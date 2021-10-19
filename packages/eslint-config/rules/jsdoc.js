@@ -86,7 +86,13 @@ module.exports = {
 
     // Reports invalid block tag names.
     // https://github.com/gajus/eslint-plugin-jsdoc#check-tag-names
-    'jsdoc/check-tag-names': 'error',
+    'jsdoc/check-tag-names': [
+      'error',
+      {
+        // `@category` is used for type doc
+        definedTags: ['category'],
+      },
+    ],
 
     // This rule checks the values for: [@version, @since, @license, @author]
     // https://github.com/gajus/eslint-plugin-jsdoc#check-values
