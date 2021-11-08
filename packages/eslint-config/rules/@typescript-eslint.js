@@ -361,6 +361,7 @@ module.exports = {
         allowCallbacks: 'never',
         allowConditionalTypes: 'always',
         allowConstructors: 'never',
+        allowGenerics: 'always',
         allowLiterals: 'in-unions-and-intersections',
         allowMappedTypes: 'always',
         allowTupleTypes: 'always',
