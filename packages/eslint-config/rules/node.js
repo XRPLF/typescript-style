@@ -45,7 +45,12 @@ module.exports = {
 
     // Disallow import declarations which import non-existent modules
     // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-missing-import.md
-    'node/no-missing-import': 'error',
+    'node/no-missing-import': [
+      2,
+      {
+        tryExtensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    ],
 
     // Disallow require() expressions which import non-existent modules
     // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-missing-require.md
@@ -136,9 +141,12 @@ module.exports = {
     // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/file-extension-in-import.md
     'node/file-extension-in-import': [
       'error',
-      'never',
+      'always',
       {
-        '.json': 'always',
+        '.js': 'never',
+        '.jsx': 'never',
+        '.ts': 'never',
+        '.tsx': 'never',
       },
     ],
 
