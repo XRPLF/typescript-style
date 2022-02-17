@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 1.8.0
+- @xrplf/eslint-config no longer uses @typescript-eslint/no-unused-vars-experimental
+
 ## 1.5.0 
 - @xrplf/eslint-config lints filenames such that they match their default export
 - @xrplf/eslint-config's engines and peer dependencies are looser
