@@ -423,17 +423,6 @@ module.exports = {
     // TODO: ERROR?
     '@typescript-eslint/no-unsafe-return': 'error',
 
-    // Disallow unused variables and arguments (experimental, uses TypeScript type information.)
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars-experimental.md
-    // TODO: Should we use this or the base /no-unused-vars?
-    '@typescript-eslint/no-unused-vars-experimental': [
-      'warn',
-      {
-        ignoredNamesRegex: '^_',
-        ignoreArgsIfArgsAfterAreUsed: false,
-      },
-    ],
-
     // Disallows the use of require statements except in import statements
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-var-requires.md
     '@typescript-eslint/no-var-requires': 'error',
