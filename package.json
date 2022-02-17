@@ -26,6 +26,9 @@
     "lint": "lerna run lint",
     "test": "lerna run test"
   },
+  "engines": {
+    "npm": ">= 7.0.0"
+  },
   "dependencies": {
     "@xrplf/eslint-config": "file:packages/eslint-config",
     "@xrplf/prettier-config": "file:packages/prettier-config"
