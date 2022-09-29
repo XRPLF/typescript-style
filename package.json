@@ -4,7 +4,7 @@
   "description": "Monorepo for all style conventions used by XRPLF in Typescript and Javascript",
   "devDependencies": {
     "eslint-find-rules": "^4.1.0",
-    "lerna": "^4.0.0"
+    "lerna": "^5.0.0"
   },
   "workspaces": [
     "packages/*"
@@ -14,6 +14,7 @@
     "test": "lerna run test"
   },
   "engines": {
+    "node": ">= 14.0.0",
     "npm": ">= 8.0.0"
   }
 }

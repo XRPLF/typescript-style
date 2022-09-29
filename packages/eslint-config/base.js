@@ -26,7 +26,6 @@ module.exports = {
       './rules/eslint-core/es6',
       './rules/eslint-comments',
       './rules/@typescript-eslint',
-      './rules/consistent-default-export-name',
       './rules/jsdoc',
       './rules/tsdoc',
       './rules/node',
