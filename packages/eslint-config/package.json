@@ -1,6 +1,6 @@
 {
   "name": "@xrplf/eslint-config",
-  "version": "1.9.0",
+  "version": "1.8.0",
   "description": "The XRPL Foundation's base TypeScript ESLint config, following our styleguide",
   "keywords": [
     "eslint",
@@ -22,23 +22,27 @@
     "unused": "eslint-find-rules --unused"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.11",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0"
+    "confusing-browser-globals": "^1.0.9",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "8.3.0"
+  },
+  "devDependencies": {
+    "@xrplf/prettier-config": "file:../prettier-config"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
-    "eslint": "^8.18.0",
-    "eslint-plugin-array-func": "^3.1.7",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.3.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-tsdoc": "^0.2.16",
-    "prettier": "^2.7.1",
-    "typescript": "^3.9.10 || ^4.0.0"
+    "@typescript-eslint/eslint-plugin": ">= 4.30.0",
+    "@typescript-eslint/parser": ">= 4.30.0",
+    "eslint": ">= 7.5.0",
+    "eslint-plugin-array-func": ">= 3.1.6",
+    "eslint-plugin-consistent-default-export-name": ">= 0.0.13",
+    "eslint-plugin-eslint-comments": ">= 3.2.0",
+    "eslint-plugin-import": ">= 2.22.0",
+    "eslint-plugin-jsdoc": ">= 36.0.8",
+    "eslint-plugin-node": ">= 11.1.0",
+    "eslint-plugin-prettier": "~4.0",
+    "eslint-plugin-tsdoc": ">= 0.2.5",
+    "prettier": ">= 2.0.5",
+    "typescript": ">= 3.9.0"
   },
   "prettier": "@xrplf/prettier-config",
   "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50"
