@@ -38,7 +38,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-tsdoc": "^0.2.16",
     "prettier": "^2.7.1",
-    "typescript": "^3.9.10 || ^4.0.0"
+    "typescript": "^3.9.10 || ^4.0.0 || ^5.0.0"
   },
   "prettier": "@xrplf/prettier-config",
   "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50"
