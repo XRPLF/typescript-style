@@ -24,7 +24,7 @@
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0"
+    "eslint-config-prettier": "^8.8.0"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.28.0",
@@ -33,7 +33,7 @@
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.3.3",
+    "eslint-plugin-jsdoc": "^39.3.3 || ^40.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-tsdoc": "^0.2.16",
