@@ -1,6 +1,10 @@
 name: Unit test
 
-on: [push, pull_request, workflow_dispatch]
+on: 
+  push:    
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   lint-and-test:
@@ -9,10 +13,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Install npm 8
-        run: npm install -g npm@8
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Install npm 10
+        run: npm i -g npm@10 --registry=https://registry.npmjs.org
 
       - name: Install dependencies
         run: npm ci
