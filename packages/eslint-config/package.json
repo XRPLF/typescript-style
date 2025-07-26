@@ -1,5 +1,5 @@
 {
-  "name": "@xrplf/eslint-config",
+  "name": "@patelraj96/eslint-config",
   "version": "1.10.1",
   "description": "The XRPL Foundation's base TypeScript ESLint config, following our styleguide",
   "keywords": [
@@ -40,6 +40,6 @@
     "prettier": "^2.7.1",
     "typescript": "^3.9.10 || ^4.0.0 || ^5.0.0"
   },
-  "prettier": "@xrplf/prettier-config",
+  "prettier": "@patelraj96/prettier-config",
   "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50"
 }
