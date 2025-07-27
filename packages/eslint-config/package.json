@@ -1,6 +1,9 @@
 {
   "name": "@patelraj96/eslint-config",
   "version": "1.10.2",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "The XRPL Foundation's base TypeScript ESLint config, following our styleguide",
   "keywords": [
     "eslint",
@@ -41,7 +44,7 @@
     "typescript": "^3.9.10 || ^4.0.0 || ^5.0.0"
   },
   "prettier": "@patelraj96/prettier-config",
-  "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50",
+  "gitHead": "9cf6f8a06558c73f027fea977898510ab20c5283",
   "engines": {
     "node": ">= 18.0.0",
     "npm": ">= 8.0.0"

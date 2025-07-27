@@ -1,6 +1,9 @@
 {
   "name": "@patelraj96/prettier-config",
   "version": "1.9.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "The XRPL Foundation's JavaScript/TypeScript configuration for Prettier",
   "main": "index.js",
   "repository": {
@@ -9,5 +12,5 @@
   },
   "author": "Greg Weisbrod <greg.weisbrod@gmail.com> (https://gregweisbrod.com)",
   "license": "ISC",
-  "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50"
+  "gitHead": "9cf6f8a06558c73f027fea977898510ab20c5283"
 }
