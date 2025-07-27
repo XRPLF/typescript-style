@@ -103,8 +103,14 @@ module.exports = {
     'jsdoc/empty-tags': 'error',
 
     // Enforces a consistent padding of the block description.
-    // https://github.com/gajus/eslint-plugin-jsdoc#newline-after-description
-    'jsdoc/newline-after-description': ['error', 'always'],
+    // https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/tag-lines.md
+    'jsdoc/tag-lines': [
+      'error',
+      'any',
+      {
+        startLines: 1,
+      },
+    ],
 
     // This rule reports types being used on @param or @returns. (For use with TypeScript)
     // https://github.com/gajus/eslint-plugin-jsdoc#no-types
