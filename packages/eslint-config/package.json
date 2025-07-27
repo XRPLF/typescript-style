@@ -27,8 +27,8 @@
     "eslint-config-prettier": "^8.8.0"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.18.0",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -41,5 +41,9 @@
     "typescript": "^3.9.10 || ^4.0.0 || ^5.0.0"
   },
   "prettier": "@patelraj96/prettier-config",
-  "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50"
+  "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50",
+  "engines": {
+    "node": ">= 18.0.0",
+    "npm": ">= 8.0.0"
+  }
 }
