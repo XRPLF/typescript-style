@@ -104,7 +104,6 @@ module.exports = {
         // TODO: Should this be true?
         allowDirectConstAssertionInArrowFunctions: false,
         allowedNames: [],
-        shouldTrackReferences: true,
       },
     ],
 
@@ -331,8 +330,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'error',
 
     // Disallow the use of parameter properties in class constructors.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-parameter-properties.md
-    '@typescript-eslint/no-parameter-properties': 'warn',
+    '@typescript-eslint/parameter-properties': 'warn',
 
     // Disallows invocation of require()
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-require-imports.md
@@ -512,8 +510,7 @@ module.exports = {
     // When adding two variables, operands must both be of type number or of type string.
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/restrict-plus-operands.md
     '@typescript-eslint/restrict-plus-operands': [
-      'error',
-      { checkCompoundAssignments: true },
+      'error',      
     ],
 
     // Enforce template literal expressions to be of string type.
