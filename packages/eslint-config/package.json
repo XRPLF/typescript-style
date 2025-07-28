@@ -36,7 +36,7 @@
     "eslint-plugin-array-func": "^4.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^47.0.0",
+    "eslint-plugin-jsdoc": "^52.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-tsdoc": "^0.2.16",
@@ -46,7 +46,7 @@
   "prettier": "@patelraj96/prettier-config",
   "gitHead": "9cf6f8a06558c73f027fea977898510ab20c5283",
   "engines": {
-    "node": "^18.18.0 || >=20.0.0",
+    "node": ">=20.11.0",
     "npm": ">= 8.0.0"
   }
 }
