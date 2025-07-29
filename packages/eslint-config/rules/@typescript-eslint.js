@@ -457,8 +457,9 @@ module.exports = {
     '@typescript-eslint/prefer-nullish-coalescing': [
       'warn',
       {
-        ignoreConditionalTests: false,
+        ignoreConditionalTests: true,
         ignoreMixedLogicalExpressions: true,
+        ignoreTernaryTests: true,
       },
     ],
 
