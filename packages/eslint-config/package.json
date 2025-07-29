@@ -1,6 +1,6 @@
 {
   "name": "@patelraj96/eslint-config",
-  "version": "1.10.11",
+  "version": "1.10.12",
   "publishConfig": {
     "access": "public"
   },
