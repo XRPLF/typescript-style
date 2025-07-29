@@ -50,10 +50,17 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/blob/v3.2.0/packages/eslint-plugin/docs/rules/ban-tslint-comment.md
     '@typescript-eslint/ban-tslint-comment': 'error',
 
-    // This rule bans specific types and can suggest alternatives. It does not ban the corresponding runtime objects from being
-    // used. It includes a default set of types that are probably mistakes, like using 'String' instead of 'string'.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/ban-types.md
-    '@typescript-eslint/ban-types': 'error',
+    // Bans the built-in {} type in confusing locations
+    // https://typescript-eslint.io/rules/no-empty-object-type/
+    '@typescript-eslint/no-empty-object-type': 'error',
+
+    // Bans use of `Function` type
+    // https://typescript-eslint.io/rules/no-unsafe-function-type/
+    '@typescript-eslint/no-unsafe-function-type': 'error',
+
+    // Bans boxed types like `String`, `Number`, `Boolean`
+    // https://typescript-eslint.io/rules/no-wrapper-object-types/
+    '@typescript-eslint/no-wrapper-object-types': 'error',
 
     // Ensures that literals on classes are exposed in a consistent style.
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/class-literal-property-style.md
@@ -346,9 +353,9 @@ module.exports = {
       },
     ],
 
-    // Disallow throwing literals as exceptions.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-throw-literal.md
-    '@typescript-eslint/no-throw-literal': 'error',
+    // Disallow throwing non-Error values as exceptions.
+    // https://typescript-eslint.io/rules/only-throw-error/
+    '@typescript-eslint/only-throw-error': 'error',
 
     // Disallow the use of type aliases for some scenarios
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-type-alias.md
@@ -561,18 +568,6 @@ module.exports = {
     '@typescript-eslint/dot-notation': [
       'error',
       { allowKeywords: true, allowPrivateClassPropertyAccess: true },
-    ],
-
-    // Require or disallow an empty line between class members
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
-    'lines-between-class-members': 'off',
-    '@typescript-eslint/lines-between-class-members': [
-      'error',
-      'always',
-      {
-        exceptAfterOverload: true,
-        exceptAfterSingleLine: true,
-      },
     ],
 
     // Disallow generic Array constructors

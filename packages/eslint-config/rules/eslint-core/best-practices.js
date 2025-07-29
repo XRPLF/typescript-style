@@ -324,10 +324,6 @@ module.exports = {
     // https://eslint.org/docs/rules/no-sequences
     'no-sequences': 'error',
 
-    // restrict what can be thrown as an exception
-    // https://eslint.org/docs/rules/no-throw-literal
-    'no-throw-literal': 'error',
-
     // disallow usage of expressions in statement position
     // https://eslint.org/docs/rules/no-unused-expressions
     // TODO: Should any of these options be true?
