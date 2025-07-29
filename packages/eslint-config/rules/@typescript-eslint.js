@@ -459,7 +459,6 @@ module.exports = {
       {
         ignoreConditionalTests: true,
         ignoreMixedLogicalExpressions: true,
-        ignoreTernaryTests: true,
       },
     ],
 
