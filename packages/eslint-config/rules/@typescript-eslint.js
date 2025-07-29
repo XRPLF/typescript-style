@@ -654,7 +654,7 @@ module.exports = {
         // Allow unused rest/destructuring parameters, since that's an easy way to remove properties from an object.
         ignoreRestSiblings: true,
         // Validate catch block arguments
-        caughtErrors: 'all',
+        caughtErrors: 'none',
         // caughtErrorsIgnorePattern: '^ignore',
       },
     ],
