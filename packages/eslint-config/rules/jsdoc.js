@@ -1,13 +1,15 @@
 const common = require('./common')
+const jsdocPlugin = require('eslint-plugin-jsdoc');
 
-module.exports = {
-  parserOptions: {
-    sourceType: 'module',
+const baseConfig = {
+  languageOptions: {
+      sourceType: "module",     
   },
 
-  plugins: ['jsdoc'],
-  extends: [],
-
+  plugins: {
+      jsdoc: jsdocPlugin
+  },
+  
   settings: {
     jsdoc: {
       mode: 'typescript',
@@ -286,14 +288,17 @@ module.exports = {
     // https://github.com/gajus/eslint-plugin-jsdoc#require-file-overview
     'jsdoc/require-file-overview': 'off',
   },
+}
 
-  overrides: [
-    {
-      files: common.testPaths,
-      rules: {
-        // We don't need JSDoc in test files
-        'jsdoc/require-jsdoc': 'off',
-      },
-    },
-  ],
+const overridesForTests = {
+  files: common.testPaths,
+  rules: {
+    // We don't need JSDoc in test files
+    'jsdoc/require-jsdoc': 'off',
+  },
+};
+
+module.exports = {
+  baseConfig,
+  overridesForTests
 }

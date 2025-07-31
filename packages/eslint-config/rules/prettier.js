@@ -1,31 +1,21 @@
-const common = require('./common')
+const common = require('./common');
+const globals = require('globals');
+const prettierRecommendedConfig = require('eslint-plugin-prettier/recommended.js');
 
-module.exports = {
-  env: {
-    // Enable node global variables & Node.js scoping
-    node: true,
-    // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
-    es2020: true,
+const baseConfig = {
+  languageOptions: {
+      sourceType: "module",
+      // Set the ecmaVersion parser option to ES2020
+      ecmaVersion: 2020,
+      globals: {
+        // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
+				...globals.node,
+        ...globals.es2020
+			},
   },
-  parserOptions: {
-    sourceType: 'module',
-  },
-
-  // Allows running prettier as an ESLint rule, and reporting differences as individual linting issues
-  plugins: ['prettier'],
-
-  // TODO: Add prettier/@typescript-eslint or others?
-  // https://github.com/prettier/eslint-config-prettier#installation
-  extends: [
-    // Disable reporting on rules that Prettier will auto-fix
-    'prettier',
-  ],
 
   // These rules are disabled by default, but can be enabled as long as you have read documentation (which I have).
-  rules: {
-    // Rule for Prettier plugin to error on Prettier errors
-    'prettier/prettier': 'error',
-
+  rules: {    
     // Require Following Curly Brace Convention
     // https://eslint.org/docs/rules/curly
     curly: ['error', 'all'],
@@ -85,16 +75,6 @@ module.exports = {
 
     /* DISABLED RULES */
 
-    /* 'arrow-body-style' and 'prefer-arrow-callback' might cause problems if using eslint-plugin-prettier and --fix. */
-    // Require braces in arrow function body
-    // https://eslint.org/docs/rules/arrow-body-style
-    'arrow-body-style': 'off',
-
-    // Require using arrow functions for callbacks
-    // https://eslint.org/docs/rules/prefer-arrow-callback
-    // 'prefer-arrow-callback': ['error', { allowUnboundThis: false }],
-    'prefer-arrow-callback': 'off',
-
     // Disallow mixes of different operators
     // var foo = a && b || c || d;    /*BAD */
     // var foo = (a && b) || c || d;  /*GOOD*/
@@ -116,32 +96,36 @@ module.exports = {
     // https://eslint.org/docs/rules/no-sequences
     'no-sequences': 'off',
   },
-
-  overrides: [
-    {
-      files: common.testPaths,
-      rules: {
-        // In test files, we often have line comments in the middle of a pipeline of assertions/expectations
-        // So, disable requiring an empty line before line comments in test files, so as to not "break" the pipeline.
-        // https://eslint.org/docs/rules/lines-around-comment
-        'lines-around-comment': [
-          'error',
-          {
-            beforeBlockComment: true,
-            afterBlockComment: false,
-            beforeLineComment: false,
-            afterLineComment: false,
-            allowBlockStart: true,
-            allowBlockEnd: true,
-            allowObjectStart: true,
-            allowObjectEnd: true,
-            allowArrayStart: true,
-            allowArrayEnd: true,
-            allowClassStart: true,
-            allowClassEnd: true,
-          },
-        ],
-      },
-    },
-  ],
 }
+
+const overridesForTests = {
+  files: common.testPaths,
+  rules: {
+    // In test files, we often have line comments in the middle of a pipeline of assertions/expectations
+    // So, disable requiring an empty line before line comments in test files, so as to not "break" the pipeline.
+    // https://eslint.org/docs/rules/lines-around-comment
+    'lines-around-comment': [
+      'error',
+      {
+        beforeBlockComment: true,
+        afterBlockComment: false,
+        beforeLineComment: false,
+        afterLineComment: false,
+        allowBlockStart: true,
+        allowBlockEnd: true,
+        allowObjectStart: true,
+        allowObjectEnd: true,
+        allowArrayStart: true,
+        allowArrayEnd: true,
+        allowClassStart: true,
+        allowClassEnd: true,
+      },
+    ],
+  },
+};
+
+module.exports = [
+  prettierRecommendedConfig,
+  baseConfig,
+  overridesForTests
+]

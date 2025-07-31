@@ -1,4 +1,5 @@
-module.exports = {
+module.exports = [
+  {
   rules: {
     // enforces getter/setter pairs in objects and classes
     // https://eslint.org/docs/rules/accessor-pairs
@@ -439,3 +440,4 @@ module.exports = {
     'require-await': 'off',
   },
 }
+];

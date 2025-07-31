@@ -1,6 +1,6 @@
 const common = require('../common')
 
-module.exports = {
+const baseConfig = {
   rules: {
     // require camel case names
     // https://eslint.org/docs/rules/camelcase
@@ -334,27 +334,30 @@ module.exports = {
     // https://eslint.org/docs/rules/sort-vars
     'sort-vars': 'off',
   },
-
-  overrides: [
-    {
-      files: common.testPaths,
-      rules: {
-        // For our test files, the pattern is to have unnamed functions
-        // https://eslint.org/docs/rules/func-names
-        'func-names': 'off',
-
-        // We use `const var = function expression` in tests to wrap functions that we expect to throw an error
-        'func-style': 'off',
-
-        // describe blocks count as a function in Mocha tests, and can be insanely long
-        'max-lines-per-function': 'off',
-
-        // This is overly annoying for test
-        'max-nested-callbacks': 'off',
-
-        // This is overly annoying for test
-        'max-lines': 'off',
-      },
-    },
-  ],
 }
+
+const overridesForTests = {
+  files: common.testPaths,
+  rules: {
+    // For our test files, the pattern is to have unnamed functions
+    // https://eslint.org/docs/rules/func-names
+    'func-names': 'off',
+
+    // We use `const var = function expression` in tests to wrap functions that we expect to throw an error
+    'func-style': 'off',
+
+    // describe blocks count as a function in Mocha tests, and can be insanely long
+    'max-lines-per-function': 'off',
+
+    // This is overly annoying for test
+    'max-nested-callbacks': 'off',
+
+    // This is overly annoying for test
+    'max-lines': 'off',
+  },
+};
+
+module.exports = [
+  baseConfig,
+  overridesForTests
+]

@@ -1,17 +1,12 @@
 /* eslint-disable max-lines, max-len --
  * TODO ironically we violate our own rules lol */
 const common = require('./common')
+const tseslint = require('typescript-eslint');
 
-module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: { sourceType: 'module' },
-
-  plugins: ['@typescript-eslint'],
-  extends: [
-    // Disable core ESLint rules known to be checked by the TypeScript compiler
-    'plugin:@typescript-eslint/eslint-recommended',
-  ],
-
+const baseConfig = {
+  languageOptions: {
+      sourceType: "module",
+  },
   rules: {
     /* SUPPORTED RULES */
 
@@ -758,126 +753,132 @@ module.exports = {
       },
     ],
   },
-
-  overrides: [
-    {
-      files: ['**/*.js', '**/*.jsx'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/no-unnecessary-condition': 'off',
-      },
-    },
-    {
-      files: ['config.ts'],
-      rules: {
-        // Our config file often has "magic numbers" as default port numbers or other things
-        '@typescript-eslint/no-magic-numbers': 'off',
-      },
-    },
-    {
-      files: common.testPaths,
-      rules: {
-        // No need to handle promise exceptions in test blocks, since they'll just be handled anyways.
-        // TODO:(hbergren) Is this true?
-        '@typescript-eslint/no-floating-promises': 'off',
-
-        // In Mocha, you can use `this.timeout()` to set a custom timeout for a specific test
-        '@typescript-eslint/no-invalid-this': 'off',
-
-        // We use non-null assertions liberally in tests to allow TypeScript to build
-        '@typescript-eslint/no-non-null-assertion': 'off',
-
-        // We purposefully break some TypeScript assumptions in various tests (like giving `null` to a database access function)
-        '@typescript-eslint/ban-ts-comment': [
-          'error',
-          {
-            'ts-expect-error': 'allow-with-description',
-            'ts-ignore': true,
-            'ts-nocheck': true,
-            'ts-check': false,
-            minimumDescriptionLength: 4,
-          },
-        ],
-
-        // Overly annoying in test
-        '@typescript-eslint/no-magic-numbers': 'off',
-      },
-    },
-    // Exceptions because of rippled's gRPC stuff.
-    {
-      files: ['**/XRP/**/*.ts'],
-      rules: {
-        // rippled uses casing to distinguish calculated vs real property names.
-        // Thus, we need to allow PascalCase property names for some scenarios.
-        '@typescript-eslint/naming-convention': [
-          'warn',
-          {
-            selector: 'default',
-            format: ['camelCase'],
-            leadingUnderscore: 'allow',
-            trailingUnderscore: 'allow',
-          },
-
-          {
-            selector: 'variable',
-            format: ['camelCase', 'UPPER_CASE'],
-            leadingUnderscore: 'allow',
-            trailingUnderscore: 'allow',
-          },
-
-          {
-            selector: 'typeLike',
-            format: ['PascalCase'],
-          },
-          // Enforce that boolean variables are prefixed with an allowed verb.
-          {
-            selector: 'variable',
-            types: ['boolean'],
-            // This isn't really PascalCase, because the prefix gets removed.
-            // So something like "isValidPayID" would get the prefix stripped
-            // and "ValidPayID" is in PascalCase.
-            format: ['PascalCase'],
-            prefix: [
-              'is',
-              'was',
-              'should',
-              'has',
-              'can',
-              'did',
-              'does',
-              'will',
-            ],
-          },
-          // Enforce that type parameters (generics) are prefixed with T
-          {
-            selector: 'typeParameter',
-            format: ['PascalCase'],
-            prefix: ['T'],
-          },
-          // Enforce that enums are singular, and do not end with 's' (for type theory reasons)
-          {
-            selector: 'enum',
-            format: ['PascalCase'],
-            filter: {
-              regex: 'Status$',
-              match: false,
-            },
-            custom: {
-              regex: 's$',
-              match: false,
-            },
-          },
-          // Enforce that enumMembers are PascalCase
-          {
-            selector: 'enumMember',
-            format: ['PascalCase', 'UPPER_CASE'],
-          },
-          {
-            selector: 'property',
-            format: ['camelCase', 'PascalCase'],
-          },
-        ],
-      },
-    },
-  ],
 }
+
+const overrides = [
+  {
+    files: ['**/*.js', '**/*.jsx'],
+    rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-unnecessary-condition': 'off',
+    },
+  },
+  {
+    files: ['config.ts'],
+    rules: {
+      // Our config file often has "magic numbers" as default port numbers or other things
+      '@typescript-eslint/no-magic-numbers': 'off',
+    },
+  },
+  {
+    files: common.testPaths,
+    rules: {
+      // No need to handle promise exceptions in test blocks, since they'll just be handled anyways.
+      // TODO:(hbergren) Is this true?
+      '@typescript-eslint/no-floating-promises': 'off',
+
+      // In Mocha, you can use `this.timeout()` to set a custom timeout for a specific test
+      '@typescript-eslint/no-invalid-this': 'off',
+
+      // We use non-null assertions liberally in tests to allow TypeScript to build
+      '@typescript-eslint/no-non-null-assertion': 'off',
+
+      // We purposefully break some TypeScript assumptions in various tests (like giving `null` to a database access function)
+      '@typescript-eslint/ban-ts-comment': [
+        'error',
+        {
+          'ts-expect-error': 'allow-with-description',
+          'ts-ignore': true,
+          'ts-nocheck': true,
+          'ts-check': false,
+          minimumDescriptionLength: 4,
+        },
+      ],
+
+      // Overly annoying in test
+      '@typescript-eslint/no-magic-numbers': 'off',
+    },
+  },
+  // Exceptions because of rippled's gRPC stuff.
+  {
+    files: ['**/XRP/**/*.ts'],
+    rules: {
+      // rippled uses casing to distinguish calculated vs real property names.
+      // Thus, we need to allow PascalCase property names for some scenarios.
+      '@typescript-eslint/naming-convention': [
+        'warn',
+        {
+          selector: 'default',
+          format: ['camelCase'],
+          leadingUnderscore: 'allow',
+          trailingUnderscore: 'allow',
+        },
+
+        {
+          selector: 'variable',
+          format: ['camelCase', 'UPPER_CASE'],
+          leadingUnderscore: 'allow',
+          trailingUnderscore: 'allow',
+        },
+
+        {
+          selector: 'typeLike',
+          format: ['PascalCase'],
+        },
+        // Enforce that boolean variables are prefixed with an allowed verb.
+        {
+          selector: 'variable',
+          types: ['boolean'],
+          // This isn't really PascalCase, because the prefix gets removed.
+          // So something like "isValidPayID" would get the prefix stripped
+          // and "ValidPayID" is in PascalCase.
+          format: ['PascalCase'],
+          prefix: [
+            'is',
+            'was',
+            'should',
+            'has',
+            'can',
+            'did',
+            'does',
+            'will',
+          ],
+        },
+        // Enforce that type parameters (generics) are prefixed with T
+        {
+          selector: 'typeParameter',
+          format: ['PascalCase'],
+          prefix: ['T'],
+        },
+        // Enforce that enums are singular, and do not end with 's' (for type theory reasons)
+        {
+          selector: 'enum',
+          format: ['PascalCase'],
+          filter: {
+            regex: 'Status$',
+            match: false,
+          },
+          custom: {
+            regex: 's$',
+            match: false,
+          },
+        },
+        // Enforce that enumMembers are PascalCase
+        {
+          selector: 'enumMember',
+          format: ['PascalCase', 'UPPER_CASE'],
+        },
+        {
+          selector: 'property',
+          format: ['camelCase', 'PascalCase'],
+        },
+      ],
+    },
+  },
+];
+
+module.exports = tseslint.config(
+  tseslint.configs.recommended,
+  baseConfig,
+  ...overrides
+);

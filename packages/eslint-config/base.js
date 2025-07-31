@@ -16,9 +16,8 @@ module.exports = {
     es2020: true,
   },
 
-  extends: ['airbnb/base'].concat(
+  extends: ['./rules/eslint-core/errors'].concat(
     [
-      './rules/eslint-core/errors',
       './rules/eslint-core/best-practices',
       './rules/eslint-core/strict',
       './rules/eslint-core/variables',
@@ -34,7 +33,8 @@ module.exports = {
       './rules/prettier',
     ].map(require.resolve),
   ),
-  rules: {},
-
-  reportUnusedDisableDirectives: true,
+  
+  linterOptions: {
+    reportUnusedDisableDirectives: "error",
+  },
 }

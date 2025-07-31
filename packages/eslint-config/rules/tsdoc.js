@@ -1,14 +1,17 @@
-module.exports = {
-  parserOptions: {
-    sourceType: 'module',
-  },
+const tsdocPlugin = require('eslint-plugin-tsdoc');
 
-  plugins: ['eslint-plugin-tsdoc'],
-  extends: [],
+module.exports = [
+  {
+    languageOptions: {
+      sourceType: "module",
+    },
 
-  rules: {
-    'tsdoc/syntax': 'warn',
-  },
+    plugins: {
+      tsdoc: tsdocPlugin
+    },
 
-  overrides: [],
-}
+    rules: {
+      'tsdoc/syntax': 'warn',
+    },
+  }
+];

@@ -1,14 +1,16 @@
+const nodePlugin = require("eslint-plugin-n")
 const common = require('./common')
 
-module.exports = {
-  env: {
-    // Enable node global variables & Node.js scoping
-    node: true,
-    // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
-    es2020: true,
-  },
-  parserOptions: {
-    sourceType: 'module',
+const baseConfig = {
+  languageOptions: {
+      sourceType: "module",
+      // Set the ecmaVersion parser option to ES2020
+      ecmaVersion: 2020,
+      globals: {
+        // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
+				...globals.node,
+        ...globals.es2020
+			},
   },
 
   settings: {
@@ -17,8 +19,7 @@ module.exports = {
     },
   },
 
-  plugins: ['node'],
-  extends: ['plugin:node/recommended'],
+  plugins: {node: nodePlugin},
 
   rules: {
     /* POSSIBLE ERRORS */
@@ -224,22 +225,28 @@ module.exports = {
       },
     ],
   },
-
-  overrides: [
-    {
-      files: ['config.ts'],
-      rules: {
-        // We use process.env in our config files
-        'node/no-process-env': 'off',
-      },
-    },
-    {
-      files: common.testPaths,
-      rules: {
-        // We import "unpublished" dependencies in test files (dev dependencies)
-        'node/no-unpublished-import': 'off',
-        'node/no-unpublished-require': 'off',
-      },
-    },
-  ],
 }
+
+const overrides = [
+  {
+    files: ['config.ts'],
+    rules: {
+      // We use process.env in our config files
+      'node/no-process-env': 'off',
+    },
+  },
+  {
+    files: common.testPaths,
+    rules: {
+      // We import "unpublished" dependencies in test files (dev dependencies)
+      'node/no-unpublished-import': 'off',
+      'node/no-unpublished-require': 'off',
+    },
+  },
+];
+
+module.export = [
+  nodePlugin.configs["flat/recommended-script"],
+  baseConfig,
+  ...overrides
+]

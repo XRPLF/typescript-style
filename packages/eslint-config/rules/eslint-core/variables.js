@@ -1,6 +1,6 @@
 const confusingBrowserGlobals = require('confusing-browser-globals')
 
-module.exports = {
+module.exports = [{
   rules: {
     // disallow deletion of variables
     // https://eslint.org/docs/rules/no-delete-var
@@ -57,4 +57,4 @@ module.exports = {
     // (Handled by no-global-assign and no-shadow-restricted-names)
     'no-undefined': 'off',
   },
-}
+}];

@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = [{
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
     // https://eslint.org/docs/rules/for-direction
@@ -180,4 +180,4 @@ module.exports = {
     // Checked by TypeScript https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts
     'valid-typeof': ['error', { requireStringLiterals: true }],
   },
-}
+}];

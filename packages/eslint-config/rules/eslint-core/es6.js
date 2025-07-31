@@ -1,6 +1,11 @@
-module.exports = {
-  env: {
-    es2020: true,
+const globals = require('globals');
+
+module.exports = [{
+  languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.es2020
+			},
   },
 
   rules: {
@@ -171,4 +176,4 @@ module.exports = {
       },
     ],
   },
-}
+}];

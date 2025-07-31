@@ -1,19 +1,22 @@
 const common = require('./common')
+const importPlugin = require('eslint-plugin-import');
 
-module.exports = {
-  env: {
-    // Enable node global variables & Node.js scoping
-    node: true,
-    // Add all ECMAScript 2020 globals and automatically set the ecmaVersion parser option to ES2020
-    es2020: true,
+const baseConfig = {
+  languageOptions: {
+      sourceType: "module",
+      // Set the ecmaVersion parser option to ES2020
+      ecmaVersion: 2020,
+      globals: {
+        // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
+				...globals.node,
+        ...globals.es2020
+			},
   },
-  parserOptions: {
-    sourceType: 'module',
+
+  plugins: {
+      import: importPlugin,
   },
-
-  plugins: ['import'],
-  extends: ['plugin:import/typescript'],
-
+ 
   rules: {
     /* STATIC ANALYSIS */
 
@@ -239,36 +242,42 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md
     'import/no-restricted-paths': 'off',
   },
-
-  overrides: [
-    {
-      files: ['src/index.ts'],
-      rules: {
-        // In SDKs, we export stuff that isn't used by the library itself,
-        // for consumption in other libraries/apps.
-        'import/no-unused-modules': 'off',
-      },
-    },
-    {
-      files: common.testPaths,
-      rules: {
-        // Our Mocha test files never export anything.
-        'import/no-unused-modules': 'off',
-
-        // Importing mocha is a side-effecting import
-        'import/no-unassigned-import': ['error', { allow: ['mocha'] }],
-      },
-    },
-    {
-      files: common.typeDeclarationPaths,
-      rules: {
-        // Declaration files could allegedly be parsed as a valid script according to eslint-plugin-import.
-        'import/unambiguous': 'off',
-
-        // Declaration files are often used in SDKs for consumption by
-        // external users.
-        'import/no-unused-modules': 'off',
-      },
-    },
-  ],
 }
+
+const overrides = [
+  {
+    files: ['src/index.ts'],
+    rules: {
+      // In SDKs, we export stuff that isn't used by the library itself,
+      // for consumption in other libraries/apps.
+      'import/no-unused-modules': 'off',
+    },
+  },
+  {
+    files: common.testPaths,
+    rules: {
+      // Our Mocha test files never export anything.
+      'import/no-unused-modules': 'off',
+
+      // Importing mocha is a side-effecting import
+      'import/no-unassigned-import': ['error', { allow: ['mocha'] }],
+    },
+  },
+  {
+    files: common.typeDeclarationPaths,
+    rules: {
+      // Declaration files could allegedly be parsed as a valid script according to eslint-plugin-import.
+      'import/unambiguous': 'off',
+
+      // Declaration files are often used in SDKs for consumption by
+      // external users.
+      'import/no-unused-modules': 'off',
+    },
+  },
+];
+
+module.exports = [
+  importPlugin.flatConfigs.typescript,
+  baseConfig,
+  ...overrides
+]
