@@ -1,3 +1,1 @@
-module.exports = {
-  extends: ['./base'].map(require.resolve),
-}
+module.exports = [...require('./base')]

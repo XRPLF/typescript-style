@@ -1,4 +1,5 @@
-const arrayFuncPlugin = require('eslint-plugin-array-func')
+const globals = require('globals')
+const arrayFunc = require('eslint-plugin-array-func')
 
 module.exports = [
   {
@@ -14,7 +15,7 @@ module.exports = [
     },
 
     plugins: {
-      'array-func': arrayFuncPlugin,
+      'array-func': arrayFunc,
     },
 
     rules: {

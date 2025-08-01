@@ -1,6 +1,6 @@
 const common = require('./common')
 const globals = require('globals')
-const prettierRecommendedConfig = require('eslint-plugin-prettier/recommended.js')
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended')
 
 const baseConfig = {
   languageOptions: {
@@ -124,4 +124,8 @@ const overridesForTests = {
   },
 }
 
-module.exports = [prettierRecommendedConfig, baseConfig, overridesForTests]
+module.exports = [
+  eslintPluginPrettierRecommended,
+  baseConfig,
+  overridesForTests,
+]

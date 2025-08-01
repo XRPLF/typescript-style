@@ -1,5 +1,6 @@
 const nodePlugin = require('eslint-plugin-n')
 const common = require('./common')
+const globals = require('globals')
 
 const baseConfig = {
   languageOptions: {
@@ -245,7 +246,7 @@ const overrides = [
   },
 ]
 
-module.export = [
+module.exports = [
   nodePlugin.configs['flat/recommended-script'],
   baseConfig,
   ...overrides,

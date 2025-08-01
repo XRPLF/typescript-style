@@ -298,7 +298,4 @@ const overridesForTests = {
   },
 }
 
-module.exports = {
-  baseConfig,
-  overridesForTests,
-}
+module.exports = [baseConfig, overridesForTests]

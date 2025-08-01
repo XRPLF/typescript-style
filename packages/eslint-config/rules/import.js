@@ -1,5 +1,6 @@
 const common = require('./common')
 const importPlugin = require('eslint-plugin-import')
+const globals = require('globals')
 
 const baseConfig = {
   languageOptions: {
@@ -11,10 +12,6 @@ const baseConfig = {
       ...globals.node,
       ...globals.es2020,
     },
-  },
-
-  plugins: {
-    import: importPlugin,
   },
 
   rules: {
