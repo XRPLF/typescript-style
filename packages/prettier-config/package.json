@@ -12,5 +12,6 @@
   },
   "author": "Greg Weisbrod <greg.weisbrod@gmail.com> (https://gregweisbrod.com)",
   "license": "ISC",
+  "prettier": "./index.js",
   "gitHead": "9cf6f8a06558c73f027fea977898510ab20c5283"
 }

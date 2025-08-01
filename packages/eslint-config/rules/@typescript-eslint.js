@@ -1,11 +1,11 @@
 /* eslint-disable max-lines, max-len --
  * TODO ironically we violate our own rules lol */
 const common = require('./common')
-const tseslint = require('typescript-eslint');
+const tseslint = require('typescript-eslint')
 
 const baseConfig = {
   languageOptions: {
-      sourceType: "module",
+    sourceType: 'module',
   },
   rules: {
     /* SUPPORTED RULES */
@@ -833,16 +833,7 @@ const overrides = [
           // So something like "isValidPayID" would get the prefix stripped
           // and "ValidPayID" is in PascalCase.
           format: ['PascalCase'],
-          prefix: [
-            'is',
-            'was',
-            'should',
-            'has',
-            'can',
-            'did',
-            'does',
-            'will',
-          ],
+          prefix: ['is', 'was', 'should', 'has', 'can', 'did', 'does', 'will'],
         },
         // Enforce that type parameters (generics) are prefixed with T
         {
@@ -875,10 +866,10 @@ const overrides = [
       ],
     },
   },
-];
+]
 
 module.exports = tseslint.config(
   tseslint.configs.recommended,
   baseConfig,
-  ...overrides
-);
+  ...overrides,
+)

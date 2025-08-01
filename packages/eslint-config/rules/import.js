@@ -1,22 +1,22 @@
 const common = require('./common')
-const importPlugin = require('eslint-plugin-import');
+const importPlugin = require('eslint-plugin-import')
 
 const baseConfig = {
   languageOptions: {
-      sourceType: "module",
-      // Set the ecmaVersion parser option to ES2020
-      ecmaVersion: 2020,
-      globals: {
-        // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
-				...globals.node,
-        ...globals.es2020
-			},
+    sourceType: 'module',
+    // Set the ecmaVersion parser option to ES2020
+    ecmaVersion: 2020,
+    globals: {
+      // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
+      ...globals.node,
+      ...globals.es2020,
+    },
   },
 
   plugins: {
-      import: importPlugin,
+    import: importPlugin,
   },
- 
+
   rules: {
     /* STATIC ANALYSIS */
 
@@ -274,10 +274,6 @@ const overrides = [
       'import/no-unused-modules': 'off',
     },
   },
-];
-
-module.exports = [
-  importPlugin.flatConfigs.typescript,
-  baseConfig,
-  ...overrides
 ]
+
+module.exports = [importPlugin.flatConfigs.typescript, baseConfig, ...overrides]

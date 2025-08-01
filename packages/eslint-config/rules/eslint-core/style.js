@@ -355,9 +355,6 @@ const overridesForTests = {
     // This is overly annoying for test
     'max-lines': 'off',
   },
-};
+}
 
-module.exports = [
-  baseConfig,
-  overridesForTests
-]
+module.exports = [baseConfig, overridesForTests]

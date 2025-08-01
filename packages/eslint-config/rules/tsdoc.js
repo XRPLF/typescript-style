@@ -1,17 +1,17 @@
-const tsdocPlugin = require('eslint-plugin-tsdoc');
+const tsdocPlugin = require('eslint-plugin-tsdoc')
 
 module.exports = [
   {
     languageOptions: {
-      sourceType: "module",
+      sourceType: 'module',
     },
 
     plugins: {
-      tsdoc: tsdocPlugin
+      tsdoc: tsdocPlugin,
     },
 
     rules: {
       'tsdoc/syntax': 'warn',
     },
-  }
-];
+  },
+]

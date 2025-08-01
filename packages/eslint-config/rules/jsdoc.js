@@ -1,15 +1,15 @@
 const common = require('./common')
-const jsdocPlugin = require('eslint-plugin-jsdoc');
+const jsdocPlugin = require('eslint-plugin-jsdoc')
 
 const baseConfig = {
   languageOptions: {
-      sourceType: "module",     
+    sourceType: 'module',
   },
 
   plugins: {
-      jsdoc: jsdocPlugin
+    jsdoc: jsdocPlugin,
   },
-  
+
   settings: {
     jsdoc: {
       mode: 'typescript',
@@ -296,9 +296,9 @@ const overridesForTests = {
     // We don't need JSDoc in test files
     'jsdoc/require-jsdoc': 'off',
   },
-};
+}
 
 module.exports = {
   baseConfig,
-  overridesForTests
+  overridesForTests,
 }

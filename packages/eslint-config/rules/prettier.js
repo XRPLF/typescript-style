@@ -1,21 +1,21 @@
-const common = require('./common');
-const globals = require('globals');
-const prettierRecommendedConfig = require('eslint-plugin-prettier/recommended.js');
+const common = require('./common')
+const globals = require('globals')
+const prettierRecommendedConfig = require('eslint-plugin-prettier/recommended.js')
 
 const baseConfig = {
   languageOptions: {
-      sourceType: "module",
-      // Set the ecmaVersion parser option to ES2020
-      ecmaVersion: 2020,
-      globals: {
-        // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
-				...globals.node,
-        ...globals.es2020
-			},
+    sourceType: 'module',
+    // Set the ecmaVersion parser option to ES2020
+    ecmaVersion: 2020,
+    globals: {
+      // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
+      ...globals.node,
+      ...globals.es2020,
+    },
   },
 
   // These rules are disabled by default, but can be enabled as long as you have read documentation (which I have).
-  rules: {    
+  rules: {
     // Require Following Curly Brace Convention
     // https://eslint.org/docs/rules/curly
     curly: ['error', 'all'],
@@ -122,10 +122,6 @@ const overridesForTests = {
       },
     ],
   },
-};
+}
 
-module.exports = [
-  prettierRecommendedConfig,
-  baseConfig,
-  overridesForTests
-]
+module.exports = [prettierRecommendedConfig, baseConfig, overridesForTests]

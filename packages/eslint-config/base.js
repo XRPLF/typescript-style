@@ -33,8 +33,8 @@ module.exports = {
       './rules/prettier',
     ].map(require.resolve),
   ),
-  
+
   linterOptions: {
-    reportUnusedDisableDirectives: "error",
+    reportUnusedDisableDirectives: 'error',
   },
 }

@@ -1,16 +1,16 @@
-const nodePlugin = require("eslint-plugin-n")
+const nodePlugin = require('eslint-plugin-n')
 const common = require('./common')
 
 const baseConfig = {
   languageOptions: {
-      sourceType: "module",
-      // Set the ecmaVersion parser option to ES2020
-      ecmaVersion: 2020,
-      globals: {
-        // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
-				...globals.node,
-        ...globals.es2020
-			},
+    sourceType: 'module',
+    // Set the ecmaVersion parser option to ES2020
+    ecmaVersion: 2020,
+    globals: {
+      // Enable ECMAScript 2020 globals, node global variables & Node.js scoping
+      ...globals.node,
+      ...globals.es2020,
+    },
   },
 
   settings: {
@@ -19,7 +19,7 @@ const baseConfig = {
     },
   },
 
-  plugins: {node: nodePlugin},
+  plugins: { node: nodePlugin },
 
   rules: {
     /* POSSIBLE ERRORS */
@@ -243,10 +243,10 @@ const overrides = [
       'node/no-unpublished-require': 'off',
     },
   },
-];
+]
 
 module.export = [
-  nodePlugin.configs["flat/recommended-script"],
+  nodePlugin.configs['flat/recommended-script'],
   baseConfig,
-  ...overrides
+  ...overrides,
 ]
