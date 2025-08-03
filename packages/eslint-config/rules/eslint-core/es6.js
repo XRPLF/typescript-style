@@ -1,14 +1,5 @@
-const globals = require('globals')
-
 module.exports = [
   {
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: {
-        ...globals.es2020,
-      },
-    },
-
     rules: {
       // verify super() callings in constructors
       // https://eslint.org/docs/rules/constructor-super

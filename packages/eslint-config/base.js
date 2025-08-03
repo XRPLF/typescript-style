@@ -16,21 +16,6 @@ const prettier = require('./rules/prettier')
 const tsdoc = require('./rules/tsdoc')
 
 module.exports = [
-  {
-    languageOptions: {
-      sourceType: 'module',
-      ecmaVersion: 2020,
-      globals: {
-        ...globals.node,
-        ...globals.es2020,
-      },
-    },
-
-    linterOptions: {
-      reportUnusedDisableDirectives: 'error',
-    },
-  },
-
   ...errors,
   ...bestPractices,
   ...strict,
@@ -45,4 +30,19 @@ module.exports = [
   ...importRules,
   ...arrayFunc,
   ...prettier,
+  {
+    languageOptions: {
+      sourceType: 'module',
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.node,
+        ...globals.es2020,
+      },
+    },
+
+    linterOptions: {
+      reportUnusedDisableDirectives: 'warn',
+      reportUnusedInlineConfigs: 'warn',
+    },
+  },
 ]
