@@ -1,5 +1,6 @@
-const common = require('./common')
 const jsdocPlugin = require('eslint-plugin-jsdoc')
+
+const common = require('./common')
 
 const baseConfig = {
   languageOptions: {

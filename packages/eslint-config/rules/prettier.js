@@ -1,6 +1,7 @@
-const common = require('./common')
-const globals = require('globals')
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended')
+const globals = require('globals')
+
+const common = require('./common')
 
 const baseConfig = {
   languageOptions: {

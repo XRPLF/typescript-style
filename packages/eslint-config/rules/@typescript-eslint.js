@@ -1,7 +1,9 @@
 /* eslint-disable max-lines, max-len --
  * TODO ironically we violate our own rules lol */
-const common = require('./common')
+// Use the correct package for typescript-eslint config utilities
 const tseslint = require('typescript-eslint')
+
+const common = require('./common')
 
 const baseConfig = {
   languageOptions: {

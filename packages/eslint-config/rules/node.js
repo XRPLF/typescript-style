@@ -1,6 +1,7 @@
 const nodePlugin = require('eslint-plugin-n')
-const common = require('./common')
 const globals = require('globals')
+
+const common = require('./common')
 
 const baseConfig = {
   languageOptions: {

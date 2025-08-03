@@ -1,6 +1,7 @@
-const common = require('./common')
 const importPlugin = require('eslint-plugin-import')
 const globals = require('globals')
+
+const common = require('./common')
 
 const baseConfig = {
   languageOptions: {

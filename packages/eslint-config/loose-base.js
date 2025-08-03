@@ -1,7 +1,8 @@
+const base = require('./base')
 const common = require('./rules/common')
 
 module.exports = [
-  ...require('./base'),
+  ...base,
   {
     rules: {
       // enforce a maximum function length

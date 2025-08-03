@@ -1,1 +1,3 @@
-module.exports = [...require('./base')]
+const base = require('./base')
+
+module.exports = base

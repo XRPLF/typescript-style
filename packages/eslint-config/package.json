@@ -20,7 +20,7 @@
   "scripts": {
     "check-prettier": "npx eslint-config-prettier index.js",
     "eslint-find-option-rules": "eslint-find-rules [option] <file> [flag]",
-    "lint": "eslint --report-unused-disable-directives .",
+    "lint": "eslint .",
     "plugin": "eslint-find-rules --plugin",
     "unused": "eslint-find-rules --unused"
   },
