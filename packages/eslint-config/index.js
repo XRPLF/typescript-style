@@ -1,3 +1,4 @@
 const base = require('./base')
+const react = require('./rules/react')
 
-module.exports = base
+module.exports = [...react, ...base]
