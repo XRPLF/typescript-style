@@ -1,9 +1,6 @@
 {
   "name": "@patelraj96/eslint-config",
   "version": "1.10.13",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "The XRPL Foundation's base TypeScript ESLint config, following our styleguide",
   "keywords": [
     "eslint",
