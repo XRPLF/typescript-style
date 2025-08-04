@@ -6,7 +6,7 @@ module.exports = [
   nodePlugin.configs['flat/recommended'],
   {
     settings: {
-      node: {
+      n: {
         tryExtensions: ['.js', '.ts', '.json', '.node'],
       },
     },
