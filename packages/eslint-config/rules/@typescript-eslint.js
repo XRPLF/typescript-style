@@ -6,9 +6,6 @@ const tseslint = require('typescript-eslint')
 const common = require('./common')
 
 const baseConfig = {
-  languageOptions: {
-    sourceType: 'module',
-  },
   rules: {
     /* SUPPORTED RULES */
 
