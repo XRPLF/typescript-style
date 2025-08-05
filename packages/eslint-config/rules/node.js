@@ -79,7 +79,6 @@ module.exports = [
       'n/no-unsupported-features/es-builtins': [
         'error',
         {
-          version: '>=12.0.0',
           ignores: [],
         },
       ],
@@ -89,7 +88,6 @@ module.exports = [
       'n/no-unsupported-features/node-builtins': [
         'error',
         {
-          version: '>=12.0.0',
           ignores: [],
         },
       ],
@@ -109,7 +107,6 @@ module.exports = [
       'n/no-deprecated-api': [
         'error',
         {
-          version: '>=12.0.0',
           ignoreModuleItems: [],
           ignoreGlobalItems: [],
         },
@@ -212,7 +209,6 @@ module.exports = [
       'n/no-unsupported-features/es-syntax': [
         'off',
         {
-          version: '>=12.0.0',
           ignores: [],
         },
       ],

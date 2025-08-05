@@ -1,9 +1,6 @@
 {
   "name": "@patelraj96/prettier-config",
   "version": "1.9.1",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "The XRPL Foundation's JavaScript/TypeScript configuration for Prettier",
   "main": "index.js",
   "repository": {

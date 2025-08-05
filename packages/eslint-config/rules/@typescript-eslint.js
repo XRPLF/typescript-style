@@ -1,11 +1,18 @@
-/* eslint-disable max-lines, max-len --
- * TODO ironically we violate our own rules lol */
-// Use the correct package for typescript-eslint config utilities
+/* eslint-disable max-lines, max-len -- Required here due to many overrides */
+
+const eslint = require('@eslint/js')
 const tseslint = require('typescript-eslint')
 
 const common = require('./common')
 
 const baseConfig = {
+  plugins: {
+    '@typescript-eslint': tseslint.plugin,
+  },
+
+  languageOptions: {
+    parser: tseslint.parser,
+  },
   rules: {
     /* SUPPORTED RULES */
 
@@ -868,7 +875,8 @@ const overrides = [
 ]
 
 module.exports = tseslint.config(
-  tseslint.configs.recommended,
+  eslint.configs.recommended,
+  tseslint.configs.eslintRecommended,
   baseConfig,
   ...overrides,
 )

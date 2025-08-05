@@ -36,6 +36,13 @@ module.exports = [
         ...globals.node,
         ...globals.es2020,
       },
+
+      parserOptions: {
+        ecmaFeatures: {
+          // Enable global strict mode
+          impliedStrict: true,
+        },
+      },
     },
 
     linterOptions: {
