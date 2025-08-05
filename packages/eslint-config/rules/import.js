@@ -3,6 +3,7 @@ const importPlugin = require('eslint-plugin-import')
 const common = require('./common')
 
 module.exports = [
+  importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
   {
     rules: {
