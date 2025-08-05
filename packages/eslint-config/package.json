@@ -44,7 +44,8 @@
     "globals": "^16.0.0",
     "prettier": "^3.0.0",
     "typescript": ">=4.8.4",
-    "typescript-eslint": "^8.0.0"
+    "typescript-eslint": "^8.0.0",
+    "eslint-import-resolver-typescript": "^4.0.0"
   },
   "prettier": "@patelraj96/prettier-config",
   "gitHead": "9cf6f8a06558c73f027fea977898510ab20c5283",

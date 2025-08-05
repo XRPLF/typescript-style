@@ -6,6 +6,14 @@ module.exports = [
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
   {
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+    },
+
     rules: {
       /* STATIC ANALYSIS */
 
