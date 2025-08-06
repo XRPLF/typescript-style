@@ -190,6 +190,16 @@ module.exports = [
           ignores: [],
         },
       ],
+
+      // Disallow import declarations which import non-existent modules
+      // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-missing-import.md
+      // Already handled by import/no-unresolved
+      'node/no-missing-import': 'off',
+
+      // Enforce the style of file extensions in import declarations
+      // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/file-extension-in-import.md
+      // Already handled by import/extensions
+      'node/file-extension-in-import': 'off',
     },
   },
   {
