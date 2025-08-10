@@ -32,6 +32,7 @@ module.exports = [
   ...prettier,
   {
     languageOptions: {
+      ecmaVersion: 2020,
       globals: {
         ...globals.node,
         ...globals.es2020,

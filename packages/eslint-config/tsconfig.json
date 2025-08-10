@@ -1,5 +1,5 @@
 {
-  "include": ["./eslint.config.js", "**/*.js"],
+  "include": ["**/*.js"],
   "compilerOptions": {
     "allowJs": true,
     "target": "ES2015",

@@ -3,29 +3,21 @@ const reactPlugin = require('eslint-plugin-react')
 const reactHooksPlugin = require('eslint-plugin-react-hooks')
 
 module.exports = [
+  jsxA11yPlugin.flatConfigs.recommended,
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat['jsx-runtime'],
+  reactHooksPlugin.configs['recommended-latest'],
   {
     files: ['**/*.jsx', '**/*.tsx'],
     plugins: {
       react: reactPlugin,
-      'react-hooks': reactHooksPlugin,
-      'jsx-a11y': jsxA11yPlugin,
     },
     languageOptions: {
       ecmaFeatures: {
         jsx: true,
       },
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
     rules: {
-      ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules,
-      ...jsxA11yPlugin.configs.recommended.rules,
-
-      // Customizations
       'react/jsx-filename-extension': [
         'error',
         {

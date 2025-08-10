@@ -15,11 +15,10 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "check-prettier": "npx eslint-config-prettier index.js",
-    "eslint-find-option-rules": "eslint-find-rules [option] <file> [flag]",
+    "eslint-find-option-rules": "eslint-find-rules --flatConfig [option] <file> [flag]",
     "lint": "eslint .",
-    "plugin": "eslint-find-rules --plugin",
-    "unused": "eslint-find-rules --unused"
+    "plugin": "eslint-find-rules --plugin --flatConfig",
+    "unused": "eslint-find-rules --unused --flatConfig"
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11"
