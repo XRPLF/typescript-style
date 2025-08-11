@@ -2,7 +2,7 @@ const eslint = require('@eslint/js')
 const globals = require('globals')
 
 const typescriptEslint = require('./rules/@typescript-eslint')
-const arrayFunc = require('./rules/array-func').default
+const arrayFunc = require('./rules/array-func.mjs').default
 const comments = require('./rules/eslint-comments')
 const bestPractices = require('./rules/eslint-core/best-practices')
 const errors = require('./rules/eslint-core/errors')

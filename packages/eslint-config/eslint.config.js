@@ -19,6 +19,14 @@ module.exports = [
       'import/unambiguous': 'off',
       'import/no-commonjs': 'off',
       'import/no-unused-modules': 'off',
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'never',
+          mjs: 'always',
+        },
+      ],
     },
   },
 ]
