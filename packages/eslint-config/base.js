@@ -1,3 +1,4 @@
+const eslint = require('@eslint/js')
 const globals = require('globals')
 
 const typescriptEslint = require('./rules/@typescript-eslint')
@@ -16,6 +17,7 @@ const prettier = require('./rules/prettier')
 const tsdoc = require('./rules/tsdoc')
 
 module.exports = [
+  eslint.configs.recommended,
   ...errors,
   ...bestPractices,
   ...strict,

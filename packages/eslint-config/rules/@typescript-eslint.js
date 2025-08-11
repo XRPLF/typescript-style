@@ -1,6 +1,5 @@
 /* eslint-disable max-lines, max-len -- Required here due to many overrides */
 
-const eslint = require('@eslint/js')
 const tseslint = require('typescript-eslint')
 
 const common = require('./common')
@@ -875,8 +874,4 @@ const baseConfig = [
   },
 ]
 
-module.exports = tseslint.config(
-  eslint.configs.recommended,
-  tseslint.configs.eslintRecommended,
-  baseConfig,
-)
+module.exports = tseslint.config(tseslint.configs.eslintRecommended, baseConfig)
