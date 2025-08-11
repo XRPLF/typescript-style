@@ -5,7 +5,80 @@
 
 A super-strict TypeScript linting configuration for enforcing best practices.
 
-### Installation
+### Installation - eslint-config version >= 2.0.0
+
+First, install the needed development dependencies:
+
+```sh
+# Ensure TypeScript and the TS ESLint packages are installed
+npm install --save-dev typescript typescript-eslint
+# Ensure ESLint & Prettier are installed
+npm install --save-dev eslint prettier
+# Install plugins used by @xrplf/eslint-config
+npm install --save-dev @eslint/js @eslint-community/eslint-plugin-eslint-comments eslint-config-prettier eslint-plugin-array-func eslint-plugin-import eslint-plugin-jsdoc eslint-plugin-n eslint-plugin-prettier eslint-plugin-tsdoc globals prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
+
+# Install the Xpring ESLint config
+npm install --save-dev @xrplf/eslint-config
+```
+
+### Usage - (Flat config)
+
+Then, configure your ESLint to use the Xpring configuration. An example ESLint configuration (eslint.config.js) is
+provided
+below:
+
+```js
+const globals = require('globals')
+const eslintConfig = require('@xrplf/eslint-config/base')
+const tseslint = require('typescript-eslint')
+
+module.exports = [
+    {
+      ignores: [
+        '**/node_modules/',
+        '**/dist/',
+        '**/build/',
+        // Other directories/files to ignore for linting can be added here
+      ],
+    },
+    ...eslintConfig, // Use @xrplf/eslint-config/base config.
+    {
+      languageOptions: {
+        sourceType: 'module', // Allow the use of imports / ES modules
+        ecmaVersion: 2020, // Indicates the ECMAScript version of the code being linted, determining both the syntax and the available global variables
+
+        // Make ESLint compatible with TypeScript
+        parser: tseslint.parser,
+        parserOptions: {
+          // Enable linting rules with type information from our tsconfig
+          tsconfigRootDir: __dirname,
+          project: [
+            './tsconfig.eslint.json',
+          ],
+          ecmaFeatures: {
+            impliedStrict: true, // Enable global strict mode
+          },
+        },
+        // Specify global variables that are predefined
+        globals: {
+          ...globals.node,
+          ...globals.es2020,
+        },
+      },
+
+      // Specify additional plugins to use.
+      plugins: {},
+
+      // Rules additional rules to override.
+      rules: {},
+    },
+    {
+      // Specify overrides for specific files or directories
+    }
+]
+```
+
+### Installation - eslint-config version ^1.0.0
 
 First, install the needed development dependencies:
 
@@ -21,7 +94,7 @@ npm install --save-dev @typescript-eslint/eslint-plugin eslint-plugin-import esl
 npm install --save-dev @xrplf/eslint-config
 ```
 
-### Usage
+### Usage - (legacy config format)
 
 Then, configure your ESLint to use the Xpring configuration. An example ESLint configuration is provided below:
 

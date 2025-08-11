@@ -1,5 +1,5 @@
 # eslint-config Version 1 to Version 2 Migration Guide
-This shared config is migrated to adhere to Flat configs that were first introduced in [v8.21.0](https://eslint.org/blog/2022/08/eslint-v8.21.0-released/) of ESlint. This means that v2.0.0 of eslint-config now exports flat configs that are equivalent to ^1.0.0 in terms of configuration rules barring some breaking changes there were introduced by ESlint itself, and other ESlint plugins that this share config exported. Below are the list of breaking changes and the steps that you need to follow to use eslint-config@2.0.0.
+This shared config is migrated to adhere to Flat configs that were first introduced in [v8.21.0](https://eslint.org/blog/2022/08/eslint-v8.21.0-released/) of ESlint. This means that v2.0.0 of eslint-config now exports flat configs that are equivalent to ^1.0.0 in terms of configuration rules barring some breaking changes there were introduced by ESlint itself, and other ESlint plugins that this shared config exported. Below are the list of breaking changes and the steps that you need to follow to use eslint-config@2.0.0.
 
  1. You might want to check out the official blog posts about Flat configs, its [migration guide](https://eslint.org/docs/latest/use/configure/migration-guide), [official docs](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new).
 
