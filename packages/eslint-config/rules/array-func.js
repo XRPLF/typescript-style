@@ -1,3 +1,3 @@
-const arrayFunc = require('eslint-plugin-array-func').default
+import arrayFunc from 'eslint-plugin-array-func'
 
-module.exports = [arrayFunc.configs.all]
+export default arrayFunc.configs.all
