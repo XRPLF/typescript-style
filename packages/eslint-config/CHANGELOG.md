@@ -5,8 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
-- Migrated ESlint and it's related plugins to their latest major version. [Breaking Change]
-- @xrplf/eslint-config version 2.0.0 now exports Flat configs that are equivalent to ^1.0.0 in terms of configuration rules barring some breaking changes there were introduced by ESlint itself, and other ESlint plugins that this shared config exported. See [V2_MIGRATION.md](./V2_MIGRATION.md). [Breaking Change]
+- Migrated ESLint, and it's related plugins to their latest major version. [Breaking Change]
+- @xrplf/eslint-config version 2.0.0 now exports Flat configs that are equivalent to ^1.0.0 in terms of configuration rules barring some breaking changes there were introduced by ESLint itself, and other ESLint plugins that this shared config exported. See [V2_MIGRATION.md](./V2_MIGRATION.md). [Breaking Change]
 
 ## 1.10.1
 - @xrplf/eslint-config allows typescript > 5.0.0 as a peer dependency
