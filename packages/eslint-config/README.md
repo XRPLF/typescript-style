@@ -15,7 +15,7 @@ npm install --save-dev typescript typescript-eslint
 # Ensure ESLint & Prettier are installed
 npm install --save-dev eslint prettier
 # Install plugins used by @xrplf/eslint-config
-npm install --save-dev @eslint/js @eslint-community/eslint-plugin-eslint-comments eslint-config-prettier eslint-plugin-array-func eslint-plugin-import eslint-plugin-jsdoc eslint-plugin-n eslint-plugin-prettier eslint-plugin-tsdoc globals prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
+npm install --save-dev @eslint/js @eslint-community/eslint-plugin-eslint-comments eslint-config-prettier eslint-plugin-array-func eslint-plugin-import eslint-plugin-jsdoc eslint-plugin-n eslint-plugin-prettier eslint-plugin-tsdoc globals prettier @eslint/eslintrc eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
 
 # Install the Xpring ESLint config
 npm install --save-dev @xrplf/eslint-config

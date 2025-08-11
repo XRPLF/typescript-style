@@ -2,7 +2,7 @@ const eslint = require('@eslint/js')
 const globals = require('globals')
 
 const typescriptEslint = require('./rules/@typescript-eslint')
-const arrayFunc = require('./rules/array-func.mjs').default
+const arrayFunc = require('./rules/array-func')
 const comments = require('./rules/eslint-comments')
 const bestPractices = require('./rules/eslint-core/best-practices')
 const errors = require('./rules/eslint-core/errors')
@@ -30,7 +30,7 @@ module.exports = [
   ...tsdoc,
   ...node,
   ...importRules,
-  arrayFunc,
+  ...arrayFunc,
   ...prettier,
   {
     languageOptions: {
