@@ -12,10 +12,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - @xrplf/eslint-config allows typescript > 5.0.0 as a peer dependency
 - @xrplf/eslint-config allows eslint-plugin-jsdoc > 40.0.0 as a peer dependency
 
-## 1.10.1
-- @xrplf/eslint-config allows typescript > 5.0.0 as a peer dependency
-- @xrplf/eslint-config allows eslint-plugin-jsdoc > 40.0.0 as a peer dependency
-
 ## 1.8.0
 - @xrplf/eslint-config no longer uses @typescript-eslint/no-unused-vars-experimental
 
