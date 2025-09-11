@@ -1,7 +1,7 @@
 name: Unit test
 
-on: 
-  push:    
+on:
+  push:
     branches: [master]
   pull_request:
   workflow_dispatch:
@@ -15,10 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Use Node.js 18.x
+      - name: Use Node.js 20.11.x
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: "20.11.x"
 
       - name: Install npm 10
         run: npm i -g npm@10 --registry=https://registry.npmjs.org

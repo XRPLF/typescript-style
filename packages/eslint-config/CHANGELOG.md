@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+- Migrated ESLint, and it's related plugins to their latest major version. [Breaking Change]
+- @xrplf/eslint-config version 2.0.0 now exports Flat configs that are equivalent to ^1.0.0 in terms of configuration rules barring some breaking changes there were introduced by ESLint itself, and other ESLint plugins that this shared config exported. See [V2_MIGRATION.md](./V2_MIGRATION.md). [Breaking Change]
+
 ## 1.10.1
 - @xrplf/eslint-config allows typescript > 5.0.0 as a peer dependency
 - @xrplf/eslint-config allows eslint-plugin-jsdoc > 40.0.0 as a peer dependency
@@ -11,7 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 1.8.0
 - @xrplf/eslint-config no longer uses @typescript-eslint/no-unused-vars-experimental
 
-## 1.5.0 
+## 1.5.0
 - @xrplf/eslint-config lints filenames such that they match their default export
 - @xrplf/eslint-config's engines and peer dependencies are looser
 - @xrplf/eslint-config allows the `category` doc tag for use with type doc

@@ -1,3 +1,4 @@
-module.exports = {
-  extends: ['./rules/react', './base'].map(require.resolve),
-}
+const base = require('./base')
+const react = require('./rules/react')
+
+module.exports = [...react, ...base]

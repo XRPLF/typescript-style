@@ -1,14 +1,35 @@
-module.exports = {
-  extends: ['airbnb', 'airbnb/hooks'],
+const jsxA11yPlugin = require('eslint-plugin-jsx-a11y')
+const reactPlugin = require('eslint-plugin-react')
+const reactHooksPlugin = require('eslint-plugin-react-hooks')
 
-  rules: {
-    'react/jsx-filename-extension': [
-      2,
-      {
-        extensions: ['.jsx', '.tsx'],
+module.exports = [
+  jsxA11yPlugin.flatConfigs.recommended,
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat['jsx-runtime'],
+  reactHooksPlugin.configs['recommended-latest'],
+  {
+    files: ['**/*.jsx', '**/*.tsx'],
+    plugins: {
+      react: reactPlugin,
+    },
+    languageOptions: {
+      ecmaFeatures: {
+        jsx: true,
       },
-    ],
-
-    'react/require-default-props': 'off',
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    rules: {
+      'react/jsx-filename-extension': [
+        'error',
+        {
+          extensions: ['.jsx', '.tsx'],
+        },
+      ],
+      'react/require-default-props': 'off',
+    },
   },
-}
+]

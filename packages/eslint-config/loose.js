@@ -1,3 +1,4 @@
-module.exports = {
-  extends: ['./rules/react', './loose-base'].map(require.resolve),
-}
+const looseBase = require('./loose-base')
+const react = require('./rules/react')
+
+module.exports = [...react, ...looseBase]

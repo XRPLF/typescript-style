@@ -15,31 +15,42 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "check-prettier": "npx eslint-config-prettier index.js",
-    "eslint-find-option-rules": "eslint-find-rules [option] <file> [flag]",
-    "lint": "npm run check-prettier && eslint --report-unused-disable-directives .",
-    "plugin": "eslint-find-rules --plugin",
-    "unused": "eslint-find-rules --unused"
+    "eslint-find-option-rules": "eslint-find-rules --flatConfig [option] <file> [flag]",
+    "lint": "eslint .",
+    "plugin": "eslint-find-rules --plugin --flatConfig",
+    "unused": "eslint-find-rules --unused --flatConfig"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.11",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.8.0"
+    "confusing-browser-globals": "^1.0.11"
+  },
+  "devDependencies": {
+    "eslint-find-rules": "^5.0.0"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.28.0",
-    "@typescript-eslint/parser": "^5.28.0",
-    "eslint": "^8.18.0",
-    "eslint-plugin-array-func": "^3.1.7",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.3.3 || ^40.0.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-tsdoc": "^0.2.16",
-    "prettier": "^2.7.1",
-    "typescript": "^3.9.10 || ^4.0.0 || ^5.0.0"
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.0.0",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-import-resolver-typescript": "^4.0.0",
+    "eslint-plugin-array-func": "^4.0.0",
+    "@eslint/eslintrc": "^3.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^52.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.0.0",
+    "typescript": ">=4.8.4",
+    "typescript-eslint": "^8.0.0"
   },
   "prettier": "@xrplf/prettier-config",
-  "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50"
+  "gitHead": "f922a7e713bb39313127b3e4d5cd8ede06402e50",
+  "engines": {
+    "node": "^20.11.0 || >=21.1.0",
+    "npm": ">= 8.0.0"
+  }
 }
