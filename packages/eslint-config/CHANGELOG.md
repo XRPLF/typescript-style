@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## 2.1.0
+- Upgrades `eslint-plugin-tsdoc` dependency from 0.4.0 to 0.5.0.
+- Upgrades the dependency `eslint-plugin-array-doc` from 4.0.0 to 5.1.0. Due to this upgrade, the `eslint-config` had to be converted from CommonJS to an ESM compatible implementation. This is because the said dependency only works with ESM modules.
+
+## 2.0.0
 - Migrated ESLint, and it's related plugins to their latest major version. [Breaking Change]
 - @xrplf/eslint-config version 2.0.0 now exports Flat configs that are equivalent to ^1.0.0 in terms of configuration rules barring some breaking changes there were introduced by ESLint itself, and other ESLint plugins that this shared config exported. See [V2_MIGRATION.md](./V2_MIGRATION.md). [Breaking Change]
 
