@@ -1,6 +1,6 @@
-const tsdocPlugin = require('eslint-plugin-tsdoc')
+import tsdocPlugin from 'eslint-plugin-tsdoc'
 
-module.exports = [
+export default [
   {
     plugins: {
       tsdoc: tsdocPlugin,

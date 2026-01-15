@@ -1,8 +1,3 @@
-const { FlatCompat } = require('@eslint/eslintrc')
-const arrayFunc = require('eslint-plugin-array-func')
+import arrayFunc from 'eslint-plugin-array-func'
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-})
-
-module.exports = compat.config(arrayFunc.configs.all)
+export default [arrayFunc.configs.all]

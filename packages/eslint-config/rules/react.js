@@ -1,8 +1,8 @@
-const jsxA11yPlugin = require('eslint-plugin-jsx-a11y')
-const reactPlugin = require('eslint-plugin-react')
-const reactHooksPlugin = require('eslint-plugin-react-hooks')
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
+import reactPlugin from 'eslint-plugin-react'
+import reactHooksPlugin from 'eslint-plugin-react-hooks'
 
-module.exports = [
+export default [
   jsxA11yPlugin.flatConfigs.recommended,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],

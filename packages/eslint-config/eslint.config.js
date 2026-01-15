@@ -1,6 +1,6 @@
-const baseConfig = require('./base')
+import baseConfig from './base.js'
 
-module.exports = [
+export default [
   ...baseConfig,
   {
     languageOptions: {
@@ -19,14 +19,17 @@ module.exports = [
       'import/unambiguous': 'off',
       'import/no-commonjs': 'off',
       'import/no-unused-modules': 'off',
+      // ESM requires .js extensions for relative imports
       'import/extensions': [
         'error',
         'ignorePackages',
         {
-          js: 'never',
+          js: 'always',
           mjs: 'always',
         },
       ],
+      // Allow anonymous default exports in ESLint config files
+      'import/no-anonymous-default-export': 'off',
     },
   },
 ]

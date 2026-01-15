@@ -1,4 +1,4 @@
-const looseBase = require('./loose-base')
-const react = require('./rules/react')
+import looseBase from './loose-base.js'
+import react from './rules/react.js'
 
-module.exports = [...react, ...looseBase]
+export default [...react, ...looseBase]

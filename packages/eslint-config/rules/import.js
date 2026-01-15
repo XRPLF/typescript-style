@@ -1,8 +1,8 @@
-const importPlugin = require('eslint-plugin-import')
+import importPlugin from 'eslint-plugin-import'
 
-const common = require('./common')
+import common from './common.js'
 
-module.exports = [
+export default [
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
   {
@@ -233,7 +233,7 @@ module.exports = [
       // Some projects contain files which are not always meant to be executed in the same environment.
       // For example consider a web application that contains specific code for the server and
       // some specific code for the browser/client.
-      // In this case you don’t want to import server-only files in your client code.
+      // In this case you don't want to import server-only files in your client code.
       // In order to prevent such scenarios this rule allows you to define restricted zones where
       // you can forbid files from imported if they match a specific path.
       // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md

@@ -1,4 +1,4 @@
-const base = require('./base')
-const react = require('./rules/react')
+import base from './base.js'
+import react from './rules/react.js'
 
-module.exports = [...react, ...base]
+export default [...react, ...base]

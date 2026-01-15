@@ -1,8 +1,8 @@
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended')
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
-const common = require('./common')
+import common from './common.js'
 
-module.exports = [
+export default [
   eslintPluginPrettierRecommended,
   {
     // These rules are disabled by default, but can be enabled as long as you have read documentation (which I have).
@@ -42,10 +42,10 @@ module.exports = [
       'no-tabs': ['warn', { allowIndentationTabs: true }],
 
       // Usually, Prettier takes care of following a maximum line length automatically.
-      // However, there are cases where Prettier can’t do anything, such as for long strings, regular expressions and comments.
-      // If you’d like to enforce an even stricter maximum line length policy than Prettier can
+      // However, there are cases where Prettier can't do anything, such as for long strings, regular expressions and comments.
+      // If you'd like to enforce an even stricter maximum line length policy than Prettier can
       // provide automatically, you can enable this rule.
-      // Just remember to keep max-len’s options and Prettier’s printWidth option in sync.
+      // Just remember to keep max-len's options and Prettier's printWidth option in sync.
       // https://eslint.org/docs/rules/max-len
       'max-len': [
         'warn',

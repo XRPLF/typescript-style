@@ -1,22 +1,22 @@
-const eslint = require('@eslint/js')
-const globals = require('globals')
+import eslint from '@eslint/js'
+import globals from 'globals'
 
-const typescriptEslint = require('./rules/@typescript-eslint')
-const arrayFunc = require('./rules/array-func')
-const comments = require('./rules/eslint-comments')
-const bestPractices = require('./rules/eslint-core/best-practices')
-const errors = require('./rules/eslint-core/errors')
-const es6 = require('./rules/eslint-core/es6')
-const strict = require('./rules/eslint-core/strict')
-const style = require('./rules/eslint-core/style')
-const variables = require('./rules/eslint-core/variables')
-const importRules = require('./rules/import')
-const jsdoc = require('./rules/jsdoc')
-const node = require('./rules/node')
-const prettier = require('./rules/prettier')
-const tsdoc = require('./rules/tsdoc')
+import typescriptEslint from './rules/@typescript-eslint.js'
+import arrayFunc from './rules/array-func.js'
+import comments from './rules/eslint-comments.js'
+import bestPractices from './rules/eslint-core/best-practices.js'
+import errors from './rules/eslint-core/errors.js'
+import es6 from './rules/eslint-core/es6.js'
+import strict from './rules/eslint-core/strict.js'
+import style from './rules/eslint-core/style.js'
+import variables from './rules/eslint-core/variables.js'
+import importRules from './rules/import.js'
+import jsdoc from './rules/jsdoc.js'
+import node from './rules/node.js'
+import prettier from './rules/prettier.js'
+import tsdoc from './rules/tsdoc.js'
 
-module.exports = [
+export default [
   eslint.configs.recommended,
   ...errors,
   ...bestPractices,

@@ -1,8 +1,8 @@
 /* eslint-disable max-lines, max-len -- Required here due to many overrides */
 
-const tseslint = require('typescript-eslint')
+import tseslint from 'typescript-eslint'
 
-const common = require('./common')
+import common from './common.js'
 
 const baseConfig = [
   {
@@ -439,7 +439,7 @@ const baseConfig = [
       // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-as-const.md
       '@typescript-eslint/prefer-as-const': 'warn',
 
-      // Prefer a ‘for-of’ loop over a standard ‘for’ loop if the index is only used to access the array being iterated.
+      // Prefer a 'for-of' loop over a standard 'for' loop if the index is only used to access the array being iterated.
       // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-for-of.md
       '@typescript-eslint/prefer-for-of': 'error',
 
@@ -684,7 +684,7 @@ const baseConfig = [
       '@typescript-eslint/no-useless-constructor': 'error',
 
       // Enforce the consistent use of either backticks, double, or single quotes
-      // Usually, you don’t need this rule at all with Prettier. But there are two cases where it could be useful:
+      // Usually, you don't need this rule at all with Prettier. But there are two cases where it could be useful:
       // - To enforce the use of backticks rather than single or double quotes for strings.
       // - To forbid backticks where regular strings could have been used.
       // https://eslint.org/docs/rules/quotes
@@ -874,4 +874,4 @@ const baseConfig = [
   },
 ]
 
-module.exports = tseslint.config(tseslint.configs.eslintRecommended, baseConfig)
+export default tseslint.config(tseslint.configs.eslintRecommended, baseConfig)
