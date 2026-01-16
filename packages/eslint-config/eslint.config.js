@@ -19,7 +19,14 @@ export default [
       'import/unambiguous': 'off',
       'import/no-commonjs': 'off',
       'import/no-unused-modules': 'off',
-      // ESM requires .js extensions for relative imports
+      // Allow anonymous default exports in ESLint config files
+      'import/no-anonymous-default-export': 'off',
+    },
+  },
+  // Override for this package only: ESM requires .js extensions for relative imports
+  {
+    files: ['*.js', 'rules/**/*.js'],
+    rules: {
       'import/extensions': [
         'error',
         'ignorePackages',
@@ -28,8 +35,6 @@ export default [
           mjs: 'always',
         },
       ],
-      // Allow anonymous default exports in ESLint config files
-      'import/no-anonymous-default-export': 'off',
     },
   },
 ]
