@@ -15,6 +15,12 @@
   },
   "license": "ISC",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./base": "./base.js",
+    "./loose": "./loose.js",
+    "./loose-base": "./loose-base.js"
+  },
   "scripts": {
     "eslint-find-option-rules": "eslint-find-rules --flatConfig [option] <file> [flag]",
     "lint": "eslint .",
@@ -34,7 +40,7 @@
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
-    "eslint-plugin-array-func": "^5.1.0",
+    "eslint-plugin-array-func": "^5.0.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^52.0.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
