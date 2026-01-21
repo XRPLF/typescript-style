@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 3.0.0
 - Upgrades `eslint-plugin-tsdoc` dependency from 0.4.0 to 0.5.0.
-- Upgrades the dependency `eslint-plugin-array-doc` from 4.0.0 to 5.1.0. Due to this upgrade, the `eslint-config` had to be converted from CommonJS to an ESM compatible implementation. This is because the said dependency only works with ESM modules.
+- Upgrades the dependency `eslint-plugin-array-func` from 4.0.0 to 5.1.0. Due to this upgrade, the `eslint-config` had to be converted from CommonJS to an ESM compatible implementation. This is because the said dependency only works with ESM modules.
 - Note: There is no behavioral change in the linter rules enforced by this package.
 
 ## 2.0.0
