@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     rules: {
       // TypeScript inserts `'use strict';` for us

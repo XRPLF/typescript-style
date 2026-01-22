@@ -1,8 +1,8 @@
-const nodePlugin = require('eslint-plugin-n')
+import nodePlugin from 'eslint-plugin-n'
 
-const common = require('./common')
+import common from './common.js'
 
-module.exports = [
+export default [
   nodePlugin.configs['flat/recommended'],
   {
     settings: {

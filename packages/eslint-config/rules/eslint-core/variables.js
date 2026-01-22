@@ -1,6 +1,6 @@
-const confusingBrowserGlobals = require('confusing-browser-globals')
+import confusingBrowserGlobals from 'confusing-browser-globals'
 
-module.exports = [
+export default [
   {
     rules: {
       // disallow deletion of variables

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     rules: {
       // verify super() callings in constructors

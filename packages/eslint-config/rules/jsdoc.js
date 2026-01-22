@@ -1,8 +1,8 @@
-const jsdocPlugin = require('eslint-plugin-jsdoc')
+import jsdocPlugin from 'eslint-plugin-jsdoc'
 
-const common = require('./common')
+import common from './common.js'
 
-module.exports = [
+export default [
   {
     plugins: {
       jsdoc: jsdocPlugin,

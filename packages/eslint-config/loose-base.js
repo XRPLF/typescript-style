@@ -1,7 +1,7 @@
-const base = require('./base')
-const common = require('./rules/common')
+import base from './base.js'
+import common from './rules/common.js'
 
-module.exports = [
+export default [
   ...base,
   {
     rules: {

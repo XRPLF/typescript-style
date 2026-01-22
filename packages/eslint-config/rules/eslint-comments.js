@@ -1,6 +1,6 @@
-const commentsConfig = require('@eslint-community/eslint-plugin-eslint-comments/configs')
+import commentsConfig from '@eslint-community/eslint-plugin-eslint-comments/configs'
 
-module.exports = [
+export default [
   commentsConfig.recommended,
   {
     rules: {
