@@ -3,7 +3,7 @@
   "private": true,
   "description": "Monorepo for all style conventions used by XRPLF in Typescript and Javascript",
   "devDependencies": {
-    "lerna": "^8.2.2"
+    "lerna": "^10.1.1"
   },
   "workspaces": [
     "packages/*"
@@ -12,7 +12,7 @@
     "lint": "lerna run lint"
   },
   "engines": {
-    "node": ">= 14.0.0",
+    "node": ">=22.22.2",
     "npm": ">= 8.0.0"
   }
 }

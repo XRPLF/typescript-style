@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+- Drops support for Node.js 20, which is end of life. Consumers must lint with Node.js 22 or later. [Breaking Change]
+- Note: There is no behavioral change in the linter rules enforced by this package.
 
 ## 3.0.0
 - Upgrades `eslint-plugin-tsdoc` dependency from 0.4.0 to 0.5.0.

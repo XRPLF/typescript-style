@@ -18,6 +18,16 @@ Within that scope, the two inputs are independent. Every in-scope ticket gets fi
 
 Requires `gh auth login` (if `gh` is not on `PATH`, try `/opt/homebrew/bin/gh`) and the Atlassian MCP. **Both are mandatory, in both modes.** Before doing anything else, confirm the Atlassian MCP is connected and authenticated (e.g. a cheap call such as listing accessible resources). If it is missing or unauthenticated, stop immediately and tell the user to connect it — do not fall back to a Dependabot-only run, since the batch would then miss ticket-driven upgrades and the closing run could close PRs without closing the matching tickets.
 
+**Registry — always the public npm registry.** This is a public repo and `package-lock.json` must only reference `https://registry.npmjs.org/`. A user's `~/.npmrc` may point `registry=` at an internal mirror (e.g. Artifactory), and npm stamps that host into every `resolved` URL it writes. So pass `--registry=https://registry.npmjs.org/` on **every** npm command that resolves or fetches packages: `npm ci`, `npm install`, `npm update`, `npm view`, `npm ls`, `npm explain` and `npm audit`. Do not edit `~/.npmrc`. After any command that writes `package-lock.json`, check that every `resolved` URL points to the public registry:
+
+```
+jq -r '.packages[] | .resolved // empty' package-lock.json | grep -v '^https://registry.npmjs.org/' | grep -v '^packages/'
+```
+
+It must print nothing; workspace links (`packages/…`) are the only allowed exception. If anything else appears, a command ran without `--registry`: re-run it with the flag. Never hand-edit the URLs.
+
+**Node version — match CI.** Use the version `actions/setup-node` pins in `.github/workflows/test.yml` (read it, don't assume). Every "under Node CI" below means that version.
+
 ## Step 1: Discover
 
 Run:
@@ -39,16 +49,16 @@ Also fetch the Semgrep tickets per **Where the list comes from** under "Semgrep 
 
 ## Step 2: Apply
 
-1. Fetch and create a branch from `origin/master`: `deps/batch-deps-upgrade-YYYY-QN` (current year and quarter). If `.claude/skills/batch-deps-upgrade/` is not yet on `master` (first run, the skill still lives on a feature branch), branch from the current `HEAD` instead and say so in the report. Then run `npm ci` (Node 20.11) so `node_modules` matches the lockfile — a stale `node_modules` makes `npm ls` lie and can make lint fail on an untouched `master` (observed: `A config object is using the "parserOptions" key` from outdated plugins). `npm ci` installs exactly what the lockfile says, so it is not the "regenerate from scratch" forbidden in step 6.
+1. Fetch and create a branch from `origin/master`: `deps/batch-deps-upgrade-YYYY-QN` (current year and quarter). If `.claude/skills/batch-deps-upgrade/` is not yet on `master` (first run, the skill still lives on a feature branch), branch from the current `HEAD` instead and say so in the report. Then run `npm ci --registry=https://registry.npmjs.org/` (Node CI) so `node_modules` matches the lockfile — a stale `node_modules` makes `npm ls` lie and can make lint fail on an untouched `master` (observed: `A config object is using the "parserOptions" key` from outdated plugins). `npm ci` installs exactly what the lockfile says, so it is not the "regenerate from scratch" forbidden in step 6.
 2. Classify each package by **where it is declared**, because that decides what an upgrade is allowed to touch:
-   - **Transitive** (only in `package-lock.json`): `npm update <pkg>` to move within the parents' declared ranges.
+   - **Transitive** (only in `package-lock.json`): `npm update <pkg> --registry=https://registry.npmjs.org/` to move within the parents' declared ranges.
    - **Root devDependency** (`lerna`): update the range in the root `package.json`.
    - **eslint-config `dependencies` / `devDependencies`** (`confusing-browser-globals`, `eslint-find-rules`): update the range in `packages/eslint-config/package.json`.
    - **eslint-config `peerDependencies`**: see **Peer dependencies** below.
 3. Check for **external peer dependency conflicts** before upgrading. Our own peer ranges are ours to change (see below), so they never block an upgrade. What blocks one is another package's peer range that we cannot change: e.g. a new `eslint-plugin-jsdoc` major that requires `eslint@^10` while `typescript-eslint` or `eslint-plugin-react` still only support `eslint@^9`. Check with `npm view <pkg>@<target> peerDependencies` against the other peers' supported ranges. Mark those Skipped (peer dep conflict: <details>).
 4. Never add `overrides` or widen a parent's declared range to force a resolution — that risks breaking a parent which never declared support for the new version.
-5. When an install can't reach its target, find the parent blocking it. If that parent is a **direct** dep we declare (in practice almost always `lerna`), bumping *it* is an ordinary upgrade rather than an override — try that, even across a major, and let Step 3 validate. Nothing else will surface it: a security ticket names the vulnerable package, never the parent pinning it, and Dependabot may have no PR open for it. `lerna` is known to pin `tar`, `js-yaml` and others exactly. Mark Skipped only when the blocker is transitive, or when bumping it fails validation. Check `lerna`'s own `engines.node` before taking a major — it must still support Node 20.11 (CI).
-6. Run `npm install` to update `package-lock.json`. **Do NOT delete `package-lock.json` or `node_modules` and regenerate from scratch** — that changes hoisting and resolution for packages nobody asked to move. Then run `npm ci` to prove the lockfile is self-consistent, exactly as CI will.
+5. When an install can't reach its target, find the parent blocking it. If that parent is a **direct** dep we declare (in practice almost always `lerna`), bumping *it* is an ordinary upgrade rather than an override — try that, even across a major, and let Step 3 validate. Nothing else will surface it: a security ticket names the vulnerable package, never the parent pinning it, and Dependabot may have no PR open for it. `lerna` is known to pin `tar`, `js-yaml` and others exactly. Mark Skipped only when the blocker is transitive, or when bumping it fails validation. Check `lerna`'s own `engines.node` before taking a major — it must still support the Node version CI pins. If it does not, raising CI's Node is a decision for the user (it may also mean raising `@xrplf/eslint-config`'s `engines`, a breaking change): mark Skipped and say which Node version would unblock it.
+6. Run `npm install --registry=https://registry.npmjs.org/` to update `package-lock.json`. **Do NOT delete `package-lock.json` or `node_modules` and regenerate from scratch** unless the user asks — that changes hoisting and resolution for packages nobody asked to move. Then run `npm ci --registry=https://registry.npmjs.org/` to prove the lockfile is self-consistent, exactly as CI will, and run the registry check from **Registry** above.
 7. Diff `package.json` files and `package-lock.json` against `origin/master` to classify each Dependabot PR row **and each Semgrep ticket** as:
    - Upgraded: version changed and now meets the target
    - No-op: version was already at/above the target on `master`, or the package is no longer installed
@@ -61,17 +71,17 @@ Also fetch the Semgrep tickets per **Where the list comes from** under "Semgrep 
 
 `packages/eslint-config/package.json` `peerDependencies` is the contract with every consuming repo (xrpl.js, etc.): consumers install these packages themselves, in these ranges. This batch runs quarterly, and taking a new major of a peer is expected and allowed in any quarter — it simply makes the next `@xrplf/eslint-config` release a major one.
 
-- **Within the current range** (e.g. `eslint-plugin-jsdoc` 52.0.1 → 52.4.0 under `^52.0.0`): `npm update <pkg>`. Lockfile only; no range change, no CHANGELOG entry.
-- **New major** (e.g. `globals@17` vs `^16.0.0`, `eslint-plugin-jsdoc@61` vs `^52.0.0`), asked for by a Dependabot PR or a Semgrep ticket: take it. Set the peer range to the new major, then `npm install` so this repo's lockfile resolves it, and let Step 3 validate.
+- **Within the current range** (e.g. `eslint-plugin-jsdoc` 52.0.1 → 52.4.0 under `^52.0.0`): `npm update <pkg> --registry=https://registry.npmjs.org/`. Lockfile only; no range change, no CHANGELOG entry.
+- **New major** (e.g. `globals@17` vs `^16.0.0`, `eslint-plugin-jsdoc@61` vs `^52.0.0`), asked for by a Dependabot PR or a Semgrep ticket: take it. Set the peer range to the new major, then `npm install --registry=https://registry.npmjs.org/` so this repo's lockfile resolves it, and let Step 3 validate.
 - **Range format — always `^X.0.0`.** Every peer range this skill writes is a caret on the major with a zero floor (`^61.0.0`, never `^61.2.3`), even when a ticket's fix version is `61.2.3`. That gives consumers the whole major to resolve within; they pick up the patched release through their own lockfile. Record the real fix version in the CHANGELOG entry and the PR tables so consumers know what to update to. Replace the old major rather than adding an alternative (`^61.0.0`, not `^52.0.0 || ^61.0.0`) — our rule files only need to work against one major. Leave ranges this batch does not touch as they are.
 - **CHANGELOG** — add one `[Breaking Change]` line per peer major under `## [Unreleased]` in `packages/eslint-config/CHANGELOG.md`: `Upgrades peer dependency \`<pkg>\` from ^<old>.0.0 to ^<new>.0.0.`, plus a sentence on any rule renames, removals or behaviour changes consumers will see (see Step 3). Do not bump `version` in `package.json` — that happens at release time via `npx lerna publish`.
 - Flag every peer major in the PR overview: it determines that the next release is a major.
 
 ## Step 3: Validate
 
-Under Node 20.11, run in order:
+Under Node CI, run in order:
 
-1. `npm ci`
+1. `npm ci --registry=https://registry.npmjs.org/`, then the registry check from **Registry** above (must print nothing)
 2. `npm run lint` — `packages/eslint-config` lints itself with its own `base.js` config, so this loads every peer plugin and parser and exercises the rules end to end.
 
 If any step fails, **attempt to fix the breaking change before rolling back**. Common patterns in this repo:
