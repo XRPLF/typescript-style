@@ -82,7 +82,8 @@ Also fetch the Semgrep tickets per **Where the list comes from** under "Semgrep 
 Under Node CI, run in order:
 
 1. `npm ci --registry=https://registry.npmjs.org/`, then the registry check from **Registry** above (must print nothing)
-2. `npm run lint` — `packages/eslint-config` lints itself with its own `base.js` config, so this loads every peer plugin and parser and exercises the rules end to end.
+2. `npm run lint` — `packages/eslint-config` lints itself with its own `base.js` config. This loads the non-React peer plugins and the parser, and runs their rules end to end. It never loads `rules/react.js`, so `eslint-plugin-react`, `eslint-plugin-react-hooks` and `eslint-plugin-jsx-a11y` are not exercised here.
+3. **Lint with every exported config.** This is the only step that catches a React peer upgrade breaking the config. Example: `eslint-plugin-react-hooks` 7 turned `configs['recommended-latest']` into the old non-flat format (the flat config moved to `configs.flat['recommended-latest']`), which ESLint 9 refuses to load; `npm run lint` still passes. Write a throwaway Node script in the scratchpad (never in the repo, never committed) that uses the ESLint API, resolved from the repo's `node_modules`, to lint a small fixture with each config in `packages/eslint-config/package.json` `exports` (currently `.`, `./base`, `./loose`, `./loose-base`).
 
 If any step fails, **attempt to fix the breaking change before rolling back**. Common patterns in this repo:
 
