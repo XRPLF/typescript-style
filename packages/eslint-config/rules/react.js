@@ -13,8 +13,10 @@ export default [
       react: reactPlugin,
     },
     languageOptions: {
-      ecmaFeatures: {
-        jsx: true,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
     settings: {

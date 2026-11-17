@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 - Drops support for Node.js 20, which is end of life, and raises the npm floor to match. Consumers must lint with Node.js 22 or later and npm 10 or later. [Breaking Change]
 - Note: There is no behavioral change in the linter rules enforced by this package.
+- Fixes the default (`@xrplf/eslint-config`) and `@xrplf/eslint-config/loose` configs failing to load on ESLint 9 with `Key "languageOptions": Unexpected key "ecmaFeatures" found`. The React config now sets `ecmaFeatures` under `languageOptions.parserOptions`. This bug has been present since 2.0.0. The `/base` and `/loose-base` configs were not affected.
 
 ## 3.0.0
 - Upgrades `eslint-plugin-tsdoc` dependency from 0.4.0 to 0.5.0.
